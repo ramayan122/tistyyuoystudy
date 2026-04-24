@@ -1,40 +1,1060 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>اختبار نمط سلوك المتعلم</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يوم ميلاد دانيه</title>
+    <style>
+        :root {
+            --bg: #1a1a2e;
+            --surface: #252540;
+            --pink: #f4a7b9;
+            --pink-light: #fce4ec;
+            --gold: #f5c842;
+            --white: #fff;
+            --text: #e0dce4;
+            --accent: #ff8fa3;
+        }
 
-  <style>
-    :root {
-      --bg-dark: #050816;
-      --bg-dark-card: #0b1020;
-      --bg-dark-elevated: #111827;
-      --text-dark-main: #e5e7eb;
-      --text-dark-muted: #9ca3af;
-      --accent: #60a5fa;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      --bg-light: #f5f5f7;
-      --bg-light-card: #ffffff;
-      --bg-light-elevated: #e5e7eb;
-      --text-light-main: #111827;
-      --text-light-muted: #6b7280;
+        body {
+            font-family: 'Tajawal', 'Segoe UI', 'Arial', sans-serif;
+            background: radial-gradient(ellipse at center, #1e1e38 0%, #0d0d1f 70%);
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            cursor: default;
+            position: relative;
+        }
 
-      --cat-analytical: #93c5fd;
-      --cat-creative:   #e9d5ff;
-      --cat-social:     #bbf7d0;
-      --cat-practical:  #fed7aa;
-      --cat-low:        #fecaca;
-      --cat-high:       #facc15;
+        /* Floating background particles */
+        .bg-particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .bg-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(40px) scale(0.4);
+                opacity: 0;
+            }
+        }
 
-      --bar-bg: #1f2937;
-      --bar-fill: #60a5fa;
+        /* Main container */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 500px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
 
-      --circle-border: #4b5563;
-    }
+        /* Title */
+        .title-area {
+            text-align: center;
+            transition: all 0.6s ease;
+        }
+        .title {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            color: var(--pink-light);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-shadow: 0 0 30px rgba(244, 167, 185, 0.3);
+            line-height: 1.5;
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            color: rgba(224, 220, 228, 0.7);
+            margin-top: 4px;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        /* Puzzle area */
+        .puzzle-area {
+            width: 100%;
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .puzzle-area.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-20px);
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            gap: 0;
+        }
+
+        /* Progress slots */
+        .progress-slots {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .slot {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            border: 2px dashed rgba(244, 167, 185, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pink-light);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+        .slot.filled {
+            border-color: var(--gold);
+            background: rgba(245, 200, 66, 0.12);
+            animation: slotPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 20px rgba(245, 200, 66, 0.25);
+        }
+        @keyframes slotPop {
+            0% {
+                transform: scale(0.7);
+            }
+            60% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Letter grid */
+        .letter-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 380px;
+        }
+        .letter-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            color: #e0dce4;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .letter-btn:hover {
+            border-color: var(--pink);
+            background: rgba(244, 167, 185, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(244, 167, 185, 0.25);
+        }
+        .letter-btn:active {
+            transform: scale(0.92);
+            transition: transform 0.1s ease;
+        }
+        .letter-btn.used {
+            opacity: 0.25;
+            pointer-events: none;
+            border-color: transparent;
+            background: rgba(255, 255, 255, 0.02);
+            transform: scale(0.85);
+        }
+        .letter-btn.wrong-shake {
+            animation: shake 0.5s ease;
+            border-color: #ff6b6b !important;
+            background: rgba(255, 107, 107, 0.2) !important;
+        }
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-6px);
+            }
+            40% {
+                transform: translateX(6px);
+            }
+            60% {
+                transform: translateX(-4px);
+            }
+            80% {
+                transform: translateX(4px);
+            }
+        }
+
+        /* Hint text */
+        .hint-text {
+            font-size: 0.85rem;
+            color: rgba(224, 220, 228, 0.55);
+            text-align: center;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Canvas container */
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            transform: translateY(40px) scale(0.9);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .canvas-container.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            border-radius: 16px;
+        }
+
+        /* Age display (DOM overlay) */
+        .age-overlay {
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f5c842;
+            text-shadow: 0 0 30px rgba(245, 200, 66, 0.7), 0 0 60px rgba(245, 200, 66, 0.4);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            z-index: 2;
+            letter-spacing: 0.05em;
+        }
+        .age-overlay.changing {
+            animation: ageFlash 0.7s ease;
+        }
+        @keyframes ageFlash {
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+            30% {
+                opacity: 0;
+                transform: translateX(-50%) scale(1.8);
+            }
+            60% {
+                opacity: 1;
+                transform: translateX(-50%) scale(0.9);
+            }
+            80% {
+                transform: translateX(-50%) scale(1.05);
+            }
+        }
+
+        /* Breeze particles container */
+        .wind-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .wind-streak {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.7), transparent);
+            border-radius: 50%;
+            animation: blowAcross linear forwards;
+            opacity: 0;
+        }
+        @keyframes blowAcross {
+            0% {
+                transform: translateX(110vw);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateX(-20vw);
+                opacity: 0;
+            }
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: fixed;
+            pointer-events: none;
+            z-index: 20;
+            animation: confettiFall linear forwards;
+        }
+        @keyframes confettiFall {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* Final message */
+        .final-message {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fce4ec;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            text-shadow: 0 0 25px rgba(244, 167, 185, 0.5);
+            line-height: 1.6;
+        }
+        .final-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .final-message .age-highlight {
+            display: inline-block;
+            color: #f5c842;
+            font-size: 2.2rem;
+            text-shadow: 0 0 35px rgba(245, 200, 66, 0.8);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 420px) {
+            .letter-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
+                border-radius: 50%;
+            }
+            .slot {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+                border-radius: 10px;
+            }
+            .letter-grid {
+                gap: 8px;
+            }
+            .progress-slots {
+                gap: 7px;
+            }
+            .age-overlay {
+                font-size: 2rem;
+            }
+            .title {
+                font-size: 1.2rem;
+            }
+            .final-message {
+                font-size: 1.3rem;
+            }
+            .final-message .age-highlight {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background floating particles -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- Main container -->
+    <div class="main-container" id="mainContainer">
+        <!-- Title -->
+        <div class="title-area" id="titleArea">
+            <h1 class="title">🌟 هل أنتِ مستعدة؟ 🌟</h1>
+            <p class="subtitle">حلّي اللغز البسيط لتري المفاجأة...</p>
+        </div>
+
+        <!-- Puzzle Area -->
+        <div class="puzzle-area" id="puzzleArea">
+            <!-- Progress slots -->
+            <div class="progress-slots" id="progressSlots">
+                <div class="slot" data-index="4"></div>
+                <div class="slot" data-index="3"></div>
+                <div class="slot" data-index="2"></div>
+                <div class="slot" data-index="1"></div>
+                <div class="slot" data-index="0"></div>
+            </div>
+            <!-- Letter buttons -->
+            <div class="letter-grid" id="letterGrid"></div>
+            <p class="hint-text" id="hintText">💡 اضغطي على حروف اسمكِ بالترتيب الصحيح</p>
+        </div>
+
+        <!-- Canvas container -->
+        <div class="canvas-container" id="canvasContainer">
+            <canvas id="cakeCanvas"></canvas>
+            <div class="age-overlay" id="ageOverlay">15</div>
+        </div>
+
+        <!-- Final message -->
+        <div class="final-message" id="finalMessage">
+            يوم ميلاد سعيد يا دانيه 🎂<br>
+            عمركِ الآن <span class="age-highlight">16</span> سنة! 💖
+        </div>
+    </div>
+
+    <!-- Wind container -->
+    <div class="wind-container" id="windContainer"></div>
+
+    <script>
+        (function() {
+            // ============ DOM Elements ============
+            const bgParticlesContainer = document.getElementById('bgParticles');
+            const puzzleArea = document.getElementById('puzzleArea');
+            const progressSlots = document.getElementById('progressSlots');
+            const letterGrid = document.getElementById('letterGrid');
+            const hintText = document.getElementById('hintText');
+            const canvasContainer = document.getElementById('canvasContainer');
+            const canvas = document.getElementById('cakeCanvas');
+            const ctx = canvas.getContext('2d');
+            const ageOverlay = document.getElementById('ageOverlay');
+            const windContainer = document.getElementById('windContainer');
+            const finalMessage = document.getElementById('finalMessage');
+            const titleArea = document.getElementById('titleArea');
+            const mainContainer = document.getElementById('mainContainer');
+
+            // ============ State ============
+            const TARGET_NAME = ['د', 'ا', 'ن', 'ي', 'ه'];
+            const DISTRACTORS = ['م', 'س', 'ر', 'ل', 'ب', 'ك', 'و', 'ش'];
+            let currentLetterIndex = 0;
+            let phase = 'puzzle'; // puzzle | cakeReveal | cakeDisplay | breeze | ageChange | complete
+            let cakeSlideY = 0;
+            let flameFlicker = 0;
+            let flameOpacity = 1;
+            let displayAge = 15;
+            let ageTransitionProgress = 0;
+            let confettiParticles = [];
+            let animationId;
+
+            // Canvas dimensions
+            const CANVAS_W = 400;
+            const CANVAS_H = 500;
+            const OFF_W = 40;
+            const OFF_H = 60;
+            const SCALE = 10;
+
+            // Offscreen canvas for pixel cake
+            const offCanvas = document.createElement('canvas');
+            offCanvas.width = OFF_W;
+            offCanvas.height = OFF_H;
+            const offCtx = offCanvas.getContext('2d');
+
+            // ============ Background particles ============
+            function createBgParticles() {
+                const count = 35;
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('bg-particle');
+                    const size = Math.random() * 3 + 1.5;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.animationDuration = Math.random() * 18 + 12 + 's';
+                    particle.style.animationDelay = Math.random() * 15 + 's';
+                    bgParticlesContainer.appendChild(particle);
+                }
+            }
+
+            // ============ Puzzle Setup ============
+            function setupPuzzle() {
+                // Create all letters (target + distractors)
+                const allLetters = [...TARGET_NAME];
+                // Add some distractors
+                const numDistractors = 7;
+                const shuffledDistractors = [...DISTRACTORS].sort(() => Math.random() - 0.5);
+                const selectedDistractors = shuffledDistractors.slice(0, numDistractors);
+                allLetters.push(...selectedDistractors);
+
+                // Shuffle all letters
+                const shuffled = allLetters.sort(() => Math.random() - 0.5);
+
+                // Render letter buttons
+                letterGrid.innerHTML = '';
+                shuffled.forEach((letter, index) => {
+                    const btn = document.createElement('button');
+                    btn.classList.add('letter-btn');
+                    btn.textContent = letter;
+                    btn.dataset.letter = letter;
+                    btn.dataset.index = index;
+                    btn.addEventListener('click', () => handleLetterClick(btn, letter));
+                    // Add touch event for mobile
+                    btn.addEventListener('touchend', (e) => {
+                        e.preventDefault();
+                        handleLetterClick(btn, letter);
+                    });
+                    letterGrid.appendChild(btn);
+                });
+
+                // Reset progress slots
+                const slots = progressSlots.querySelectorAll('.slot');
+                slots.forEach(slot => {
+                    slot.classList.remove('filled');
+                    slot.textContent = '';
+                });
+                currentLetterIndex = 0;
+                hintText.textContent = '💡 اضغطي على حروف اسمكِ بالترتيب الصحيح';
+                hintText.style.opacity = '1';
+            }
+
+            function handleLetterClick(btn, letter) {
+                if (phase !== 'puzzle') return;
+                if (btn.classList.contains('used')) return;
+
+                if (letter === TARGET_NAME[currentLetterIndex]) {
+                    // Correct letter!
+                    btn.classList.add('used');
+                    // Fill the appropriate slot (RTL: index 0 is rightmost for first letter)
+                    const slotIndex = currentLetterIndex;
+                    const slots = progressSlots.querySelectorAll('.slot');
+                    const targetSlot = slots[slotIndex];
+                    if (targetSlot) {
+                        targetSlot.textContent = letter;
+                        targetSlot.classList.add('filled');
+                    }
+                    currentLetterIndex++;
+
+                    // Check if puzzle complete
+                    if (currentLetterIndex >= TARGET_NAME.length) {
+                        setTimeout(() => {
+                            completePuzzle();
+                        }, 500);
+                    } else {
+                        hintText.textContent = '👏 أحسنتِ! استمري...';
+                        hintText.style.opacity = '1';
+                        setTimeout(() => {
+                            hintText.style.opacity = '0.6';
+                        }, 1200);
+                    }
+                } else {
+                    // Wrong letter
+                    btn.classList.add('wrong-shake');
+                    hintText.textContent = '❌ ليس هذا الحرف... حاولي مرة أخرى';
+                    hintText.style.opacity = '1';
+                    setTimeout(() => {
+                        btn.classList.remove('wrong-shake');
+                        hintText.style.opacity = '0.7';
+                    }, 600);
+                }
+            }
+
+            function completePuzzle() {
+                phase = 'cakeReveal';
+                hintText.textContent = '✨ أحسنتِ! تم حل اللغز... ✨';
+                hintText.style.opacity = '1';
+
+                // Hide puzzle after brief delay
+                setTimeout(() => {
+                    puzzleArea.classList.add('hidden');
+                    titleArea.querySelector('.title').textContent = '🎂 تفضّلي... 🎂';
+                    titleArea.querySelector('.subtitle').textContent = '';
+                    // Reveal canvas
+                    canvasContainer.classList.add('revealed');
+                    initCanvas();
+                    cakeSlideY = CANVAS_H;
+                    animateCakeReveal();
+                }, 900);
+            }
+
+            // ============ Canvas & Cake ============
+            function initCanvas() {
+                canvas.width = CANVAS_W;
+                canvas.height = CANVAS_H;
+                ctx.imageSmoothingEnabled = false;
+                offCtx.imageSmoothingEnabled = false;
+                drawStaticCake();
+            }
+
+            function drawStaticCake() {
+                offCtx.clearRect(0, 0, OFF_W, OFF_H);
+
+                // --- Plate ---
+                offCtx.fillStyle = '#d4c5b9';
+                offCtx.fillRect(3, 51, 34, 5);
+                offCtx.fillStyle = '#c4b5a9';
+                offCtx.fillRect(4, 52, 32, 3);
+                // Plate highlight
+                offCtx.fillStyle = '#e8dcd3';
+                offCtx.fillRect(5, 51, 30, 1);
+
+                // --- Bottom tier (wider) ---
+                const btX = 7;
+                const btY = 36;
+                const btW = 26;
+                const btH = 15;
+                // Cake body
+                offCtx.fillStyle = '#e8917e';
+                offCtx.fillRect(btX, btY, btW, btH);
+                // Darker shading on sides
+                offCtx.fillStyle = '#d4796b';
+                offCtx.fillRect(btX, btY, 2, btH);
+                offCtx.fillRect(btX + btW - 2, btY, 2, btH);
+                // Lighter center highlight
+                offCtx.fillStyle = '#f0a090';
+                offCtx.fillRect(btX + 8, btY, 10, btH);
+                // Frosting top of bottom tier
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(btX - 1, btY - 2, btW + 2, 3);
+                offCtx.fillStyle = '#ffe8e0';
+                offCtx.fillRect(btX, btY - 1, btW, 2);
+                // Frosting drips
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(btX, btY + 1, 1, 5);
+                offCtx.fillRect(btX + 6, btY + 1, 1, 4);
+                offCtx.fillRect(btX + btW - 2, btY + 1, 1, 6);
+                offCtx.fillRect(btX + btW - 8, btY + 1, 1, 3);
+
+                // --- Top tier ---
+                const ttX = 11;
+                const ttY = 24;
+                const ttW = 18;
+                const ttH = 12;
+                offCtx.fillStyle = '#f4a7b9';
+                offCtx.fillRect(ttX, ttY, ttW, ttH);
+                offCtx.fillStyle = '#e895a5';
+                offCtx.fillRect(ttX, ttY, 2, ttH);
+                offCtx.fillRect(ttX + ttW - 2, ttY, 2, ttH);
+                offCtx.fillStyle = '#fbbac8';
+                offCtx.fillRect(ttX + 6, ttY, 6, ttH);
+                // Frosting top of top tier
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(ttX - 1, ttY - 2, ttW + 2, 3);
+                offCtx.fillStyle = '#ffe8e0';
+                offCtx.fillRect(ttX, ttY - 1, ttW, 2);
+                // Frosting drips
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(ttX + 1, ttY + 1, 1, 4);
+                offCtx.fillRect(ttX + ttW - 3, ttY + 1, 1, 5);
+
+                // --- Sprinkles / decorations ---
+                const sprinkleColors = ['#ff6b8a', '#ffcc00', '#66ddff', '#ff9e6d', '#a0e7a0', '#fff'];
+                for (let i = 0; i < 18; i++) {
+                    const sx = btX + 2 + Math.floor(Math.random() * (btW - 4));
+                    const sy = btY + 2 + Math.floor(Math.random() * (btH - 3));
+                    offCtx.fillStyle = sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
+                    offCtx.fillRect(sx, sy, 1, 1);
+                }
+                for (let i = 0; i < 10; i++) {
+                    const sx = ttX + 2 + Math.floor(Math.random() * (ttW - 4));
+                    const sy = ttY + 2 + Math.floor(Math.random() * (ttH - 3));
+                    offCtx.fillStyle = sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
+                    offCtx.fillRect(sx, sy, 1, 1);
+                }
+
+                // --- Candles ---
+                const candle1X = 16;
+                const candle2X = 22;
+                const candleY = 16;
+                const candleH = 8;
+                // Candle 1
+                offCtx.fillStyle = '#ffe8cc';
+                offCtx.fillRect(candle1X, candleY, 2, candleH);
+                offCtx.fillStyle = '#ffd9a8';
+                offCtx.fillRect(candle1X + 1, candleY, 1, candleH);
+                // Candle 2
+                offCtx.fillStyle = '#ffe8cc';
+                offCtx.fillRect(candle2X, candleY, 2, candleH);
+                offCtx.fillStyle = '#ffd9a8';
+                offCtx.fillRect(candle2X + 1, candleY, 1, candleH);
+                // Candle stripes
+                offCtx.fillStyle = '#f5c8a0';
+                offCtx.fillRect(candle1X, candleY + 2, 2, 1);
+                offCtx.fillRect(candle1X, candleY + 5, 2, 1);
+                offCtx.fillRect(candle2X, candleY + 2, 2, 1);
+                offCtx.fillRect(candle2X, candleY + 5, 2, 1);
+            }
+
+            function drawFlamesOnMain(ctx, frame, opacity) {
+                // Flame positions in main canvas coordinates
+                const flame1CX = (16 + 1) * SCALE; // center of candle 1
+                const flame1CY = 14 * SCALE;
+                const flame2CX = (22 + 1) * SCALE;
+                const flame2CY = 14 * SCALE;
+
+                drawSingleFlame(ctx, flame1CX, flame1CY, frame, opacity);
+                drawSingleFlame(ctx, flame2CX, flame2CY, frame + 1.7, opacity);
+            }
+
+            function drawSingleFlame(ctx, cx, cy, frame, opacity) {
+                if (opacity <= 0.01) return;
+                ctx.save();
+                ctx.globalAlpha = Math.min(1, Math.max(0, opacity));
+
+                const flicker = Math.sin(frame * 0.7) * 3 + Math.cos(frame * 1.3) * 2;
+                const h = 12 + flicker;
+                const w = 6 + Math.abs(flicker) * 0.8;
+
+                // Outer glow
+                const glowGrad = ctx.createRadialGradient(cx, cy - h * 0.3, w * 0.5, cx, cy, w * 2.5);
+                glowGrad.addColorStop(0, 'rgba(255,180,30,0.8)');
+                glowGrad.addColorStop(0.4, 'rgba(255,140,20,0.5)');
+                glowGrad.addColorStop(0.7, 'rgba(255,100,10,0.15)');
+                glowGrad.addColorStop(1, 'rgba(255,60,5,0)');
+                ctx.fillStyle = glowGrad;
+                ctx.beginPath();
+                ctx.arc(cx, cy - h * 0.25, w * 2.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Outer flame (orange)
+                ctx.fillStyle = '#ff8c30';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.quadraticCurveTo(cx - w, cy - h * 0.6, cx, cy - h);
+                ctx.quadraticCurveTo(cx + w, cy - h * 0.6, cx, cy);
+                ctx.fill();
+
+                // Inner flame (yellow)
+                const innerH = h * 0.55;
+                const innerW = w * 0.5;
+                ctx.fillStyle = '#ffd54f';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - 2);
+                ctx.quadraticCurveTo(cx - innerW, cy - innerH * 0.6, cx, cy - innerH);
+                ctx.quadraticCurveTo(cx + innerW, cy - innerH * 0.6, cx, cy - 2);
+                ctx.fill();
+
+                // White-hot core
+                const coreH = innerH * 0.35;
+                ctx.fillStyle = '#fff8e1';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - 3);
+                ctx.quadraticCurveTo(cx - 1.5, cy - coreH * 0.7, cx, cy - coreH);
+                ctx.quadraticCurveTo(cx + 1.5, cy - coreH * 0.7, cx, cy - 3);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function renderFullCanvas(slideY, flameFrame, flameOp) {
+                ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+
+                // Dark background for canvas
+                ctx.fillStyle = '#1a1a2e';
+                ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+
+                // Subtle radial glow behind cake
+                const glowGrad = ctx.createRadialGradient(CANVAS_W / 2, CANVAS_H * 0.45, CANVAS_W * 0.15,
+                    CANVAS_W / 2, CANVAS_H * 0.5, CANVAS_W * 0.7);
+                glowGrad.addColorStop(0, 'rgba(244,167,185,0.18)');
+                glowGrad.addColorStop(1, 'rgba(26,26,46,0)');
+                ctx.fillStyle = glowGrad;
+                ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+
+                // Draw pixel cake
+                const destY = slideY;
+                ctx.drawImage(offCanvas, 0, 0, OFF_W, OFF_H, 0, destY, CANVAS_W, CANVAS_H);
+
+                // Draw flames on top (if cake is visible and flames not blown out)
+                if (slideY < CANVAS_H * 0.5 && flameOp > 0.01) {
+                    drawFlamesOnMain(ctx, flameFrame, flameOp);
+                }
+
+                // Sparkles around cake area
+                if (slideY < CANVAS_H * 0.3) {
+                    drawSparkles(ctx, flameFrame);
+                }
+            }
+
+            function drawSparkles(ctx, frame) {
+                const sparklePositions = [
+                    { x: 0.35, y: 0.28 }, { x: 0.6, y: 0.25 }, { x: 0.3, y: 0.35 },
+                    { x: 0.65, y: 0.32 }, { x: 0.4, y: 0.22 }, { x: 0.55, y: 0.2 },
+                    { x: 0.28, y: 0.4 }, { x: 0.68, y: 0.38 }, { x: 0.45, y: 0.18 },
+                ];
+                sparklePositions.forEach((pos, i) => {
+                    const sx = pos.x * CANVAS_W;
+                    const sy = pos.y * CANVAS_H + cakeSlideY;
+                    const brightness = 0.3 + 0.7 * Math.abs(Math.sin(frame * 0.04 + i * 1.8));
+                    if (brightness < 0.35) return;
+                    ctx.fillStyle = `rgba(255,255,240,${brightness * 0.9})`;
+                    const size = 2 + brightness * 3;
+                    ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
+                    // Cross sparkle
+                    if (brightness > 0.7) {
+                        ctx.fillStyle = `rgba(255,255,240,${brightness * 0.6})`;
+                        ctx.fillRect(sx - size * 1.2, sy - 0.5, size * 2.4, 1);
+                        ctx.fillRect(sx - 0.5, sy - size * 1.2, 1, size * 2.4);
+                    }
+                });
+            }
+
+            // ============ Cake Reveal Animation ============
+            function animateCakeReveal() {
+                const targetY = 0;
+                const startY = CANVAS_H;
+                const duration = 1200;
+                const startTime = performance.now();
+
+                function step(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(1, elapsed / duration);
+                    // Ease out (cubic)
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    cakeSlideY = startY + (targetY - startY) * eased;
+
+                    renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+
+                    if (progress < 1) {
+                        animationId = requestAnimationFrame(step);
+                    } else {
+                        cakeSlideY = targetY;
+                        phase = 'cakeDisplay';
+                        flameOpacity = 1;
+                        // Start flame animation
+                        startFlameAnimation();
+                        // Schedule breeze after delay
+                        setTimeout(() => {
+                            if (phase === 'cakeDisplay') {
+                                triggerBreeze();
+                            }
+                        }, 2800);
+                    }
+                }
+                animationId = requestAnimationFrame(step);
+            }
+
+            function startFlameAnimation() {
+                function flameLoop(now) {
+                    if (phase === 'cakeDisplay' || phase === 'breeze') {
+                        flameFlicker += 0.16;
+                        renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+                        animationId = requestAnimationFrame(flameLoop);
+                    } else if (phase === 'ageChange' || phase === 'complete') {
+                        renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+                        // Still render but no flame animation
+                    }
+                }
+                animationId = requestAnimationFrame(flameLoop);
+            }
+
+            // ============ Breeze ============
+            function triggerBreeze() {
+                phase = 'breeze';
+                // Create wind streaks
+                const streakCount = 22;
+                const candleScreenY = canvasContainer.getBoundingClientRect().top +
+                    (canvasContainer.getBoundingClientRect().height * 0.25);
+
+                for (let i = 0; i < streakCount; i++) {
+                    const streak = document.createElement('div');
+                    streak.classList.add('wind-streak');
+                    const yOffset = (Math.random() - 0.5) * 200;
+                    streak.style.top = (candleScreenY + yOffset) + 'px';
+                    streak.style.width = (Math.random() * 120 + 60) + 'px';
+                    streak.style.height = (Math.random() * 3 + 1.5) + 'px';
+                    streak.style.animationDuration = (Math.random() * 1.2 + 1) + 's';
+                    streak.style.animationDelay = (Math.random() * 0.7) + 's';
+                    windContainer.appendChild(streak);
+
+                    // Clean up after animation
+                    const totalDuration = parseFloat(streak.style.animationDuration) + parseFloat(streak.style
+                        .animationDelay);
+                    setTimeout(() => {
+                        if (streak.parentNode) streak.parentNode.removeChild(streak);
+                    }, totalDuration * 1000 + 300);
+                }
+
+                // Start dimming the flame after wind passes
+                setTimeout(() => {
+                    const dimInterval = setInterval(() => {
+                        flameOpacity -= 0.06;
+                        if (flameOpacity <= 0) {
+                            flameOpacity = 0;
+                            clearInterval(dimInterval);
+                            // Age change!
+                            triggerAgeChange();
+                        }
+                    }, 40);
+                }, 900);
+            }
+
+            // ============ Age Change ============
+            function triggerAgeChange() {
+                phase = 'ageChange';
+                ageOverlay.classList.add('changing');
+
+                // Update age mid-animation
+                setTimeout(() => {
+                    ageOverlay.textContent = '16';
+                    displayAge = 16;
+                }, 280);
+
+                // After animation
+                setTimeout(() => {
+                    ageOverlay.classList.remove('changing');
+                    ageOverlay.textContent = '16';
+                    displayAge = 16;
+                    phase = 'complete';
+                    spawnConfetti();
+                    showFinalMessage();
+                }, 750);
+            }
+
+            // ============ Confetti ============
+            function spawnConfetti() {
+                const colors = ['#ff6b8a', '#ffcc00', '#66ddff', '#ff9e6d', '#a0e7a0',
+                    '#ff80ab', '#ffd740', '#40c4ff', '#b2ff59', '#ff8a80',
+                    '#fff176', '#84ffff', '#ffab91', '#e8b7d4', '#f5c842'
+                ];
+                const cakeRect = canvasContainer.getBoundingClientRect();
+                const centerX = cakeRect.left + cakeRect.width / 2;
+                const centerY = cakeRect.top + cakeRect.height * 0.3;
+
+                for (let i = 0; i < 80; i++) {
+                    const piece = document.createElement('div');
+                    piece.classList.add('confetti-piece');
+                    piece.style.left = centerX + 'px';
+                    piece.style.top = centerY + 'px';
+                    const size = Math.random() * 8 + 4;
+                    piece.style.width = size + 'px';
+                    piece.style.height = size * (Math.random() * 0.6 + 0.4) + 'px';
+                    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 350 + 100;
+                    const dx = Math.cos(angle) * distance;
+                    const dy = Math.sin(angle) * distance - Math.random() * 200;
+                    piece.style.setProperty('--dx', dx + 'px');
+                    piece.style.setProperty('--dy', dy + 'px');
+                    piece.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+                    piece.style.animationDuration = (Math.random() * 2 + 1.8) + 's';
+                    piece.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(piece);
+
+                    // Clean up
+                    const totalDur = parseFloat(piece.style.animationDuration) + parseFloat(piece.style
+                    .animationDelay);
+                    setTimeout(() => {
+                        if (piece.parentNode) piece.parentNode.removeChild(piece);
+                    }, totalDur * 1000 + 200);
+                }
+            }
+
+            // ============ Final Message ============
+            function showFinalMessage() {
+                finalMessage.classList.add('show');
+                titleArea.querySelector('.title').textContent = '💖 مبارك يا دانيه 💖';
+                titleArea.querySelector('.subtitle').textContent = '';
+                // Add subtle sparkle to age highlight
+                const ageSpan = finalMessage.querySelector('.age-highlight');
+                if (ageSpan) {
+                    ageSpan.textContent = '16';
+                }
+            }
+
+            // ============ Global animation loop (fallback) ============
+            function globalAnimationLoop(now) {
+                if (phase === 'cakeDisplay' || phase === 'breeze') {
+                    // handled by flameLoop
+                } else if (phase === 'ageChange' || phase === 'complete') {
+                    renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+                }
+                if (phase !== 'puzzle' && phase !== 'cakeReveal') {
+                    animationId = requestAnimationFrame(globalAnimationLoop);
+                }
+            }
+
+            // ============ Initialize ============
+            function init() {
+                createBgParticles();
+                setupPuzzle();
+                canvasContainer.classList.remove('revealed');
+                finalMessage.classList.remove('show');
+                ageOverlay.textContent = '15';
+                displayAge = 15;
+                flameOpacity = 1;
+                flameFlicker = 0;
+                cakeSlideY = 0;
+                phase = 'puzzle';
+                currentLetterIndex = 0;
+                // Draw initial empty canvas
+                ctx.fillStyle = '#1a1a2e';
+                ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+                // Start global loop for later phases
+                animationId = requestAnimationFrame(globalAnimationLoop);
+            }
+
+            init();
+
+            // ============ Handle window resize for wind Y position ============
+            // (Wind positions are recalculated when breeze triggers, so this is fine)
+
+            console.log('🌟 موقع يوم ميلاد دانيه جاهز! 🌟');
+            console.log('💡 حلّي اللغز: اضغطي على حروف اسم "دانيه" بالترتيب');
+            console.log('🎂 بعدها راح تشوفين الكيكة والبكسلات والنسمة تطفي الشمعة!');
+            console.log('💖 عمرك بيتغير من 15 إلى 16');
+        })();
+    </script>
+</body>
+</html    }
 
     body {
       margin: 0;
