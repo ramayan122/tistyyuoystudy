@@ -14,7 +14,8 @@
             --white: #fff;
             --text: #e0dce4;
             --accent: #ff8fa3;
-                
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -1053,1595 +1054,2116 @@
         })();
     </script>
 </body>
-</html    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Tajawal", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      direction: rtl;
-      text-align: center;
-    }
-
-    body.dark {
-      background: radial-gradient(circle at top, #111827, #020617 55%);
-      color: var(--text-dark-main);
-    }
-
-    body.light {
-      background: radial-gradient(circle at top, #e5e7eb, #f5f5f7 55%);
-      color: var(--text-light-main);
-    }
-
-    .screen {
-      max-width: 1100px;
-      margin: 16px auto;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
-    }
-
-    body.dark .screen {
-      background: linear-gradient(145deg, #020617, #020617, #020617, #020617);
-      border: 1px solid #1f2937;
-    }
-
-    body.light .screen {
-      background: var(--bg-light-card);
-      border: 1px solid #d4d4d8;
-    }
-
-    h1, h2, h3, h4 {
-      margin-top: 0;
-    }
-
-    body.dark h1, body.dark h2, body.dark h3, body.dark h4 {
-      color: var(--text-dark-main);
-    }
-
-    body.light h1, body.light h2, body.light h3, body.light h4 {
-      color: var(--text-light-main);
-    }
-
-    p, label {
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    body.dark p, body.dark label {
-      color: var(--text-dark-main);
-    }
-
-    body.light p, body.light label {
-      color: var(--text-light-main);
-    }
-
-    .small-text {
-      font-size: 12px;
-    }
-
-    body.dark .small-text {
-      color: var(--text-dark-muted);
-    }
-
-    body.light .small-text {
-      color: var(--text-light-muted);
-    }
-
-    button {
-      border: none;
-      border-radius: 999px;
-      padding: 9px 20px;
-      font-size: 14px;
-      cursor: pointer;
-      margin: 6px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-
-    body.dark button {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      color: white;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.7);
-    }
-
-    body.dark button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.9);
-    }
-
-    body.light button {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      color: white;
-      box-shadow: 0 6px 16px rgba(148, 163, 184, 0.7);
-    }
-
-    body.light button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(148, 163, 184, 0.9);
-    }
-
-    input, select {
-      width: 80%;
-      padding: 8px;
-      margin: 4px 0 14px 0;
-      border-radius: 8px;
-      border: 1px solid #4b5563;
-      font-size: 14px;
-      background: transparent;
-      outline: none;
-    }
-
-    body.dark input, body.dark select {
-      color: var(--text-dark-main);
-      background: #020617;
-      border-color: #4b5563;
-    }
-
-    body.light input, body.light select {
-      color: var(--text-light-main);
-      background: #f9fafb;
-      border-color: #d4d4d8;
-    }
-
-    input::placeholder {
-      opacity: 0.7;
-    }
-
-    /* أعلى الصفحة: قائمة + وضع ليلي */
-
-    .top-bar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 12px;
-      z-index: 40;
-      backdrop-filter: blur(16px);
-    }
-
-    body.dark .top-bar {
-      background: linear-gradient(to left, rgba(15,23,42,0.9), rgba(15,23,42,0.6));
-      border-bottom: 1px solid #1f2937;
-      color: var(--text-dark-main);
-    }
-
-    body.light .top-bar {
-      background: linear-gradient(to left, rgba(243,244,246,0.9), rgba(243,244,246,0.6));
-      border-bottom: 1px solid #e5e7eb;
-      color: var(--text-light-main);
-    }
-
-    .top-bar-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .top-logo {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .top-bar-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .icon-button {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border: none;
-      font-size: 16px;
-    }
-
-    body.dark .icon-button {
-      background: #020617;
-      color: #e5e7eb;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.8);
-    }
-
-    body.light .icon-button {
-      background: #ffffff;
-      color: #111827;
-      box-shadow: 0 4px 12px rgba(148, 163, 184, 0.7);
-    }
-
-    .hamburger-lines {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 3px;
-    }
-
-    .hamburger-line {
-      width: 14px;
-      height: 2px;
-      border-radius: 999px;
-      background: currentColor;
-    }
-
-    /* القائمة الجانبية */
-
-    .sidebar {
-      position: fixed;
-      top: 48px;
-      right: 0;
-      width: 230px;
-      height: calc(100vh - 48px);
-      padding: 16px 12px;
-      z-index: 30;
-      transform: translateX(100%);
-      transition: transform 0.2s ease;
-      overflow-y: auto;
-    }
-
-    body.dark .sidebar {
-      background: #020617;
-      border-left: 1px solid #1f2937;
-      color: var(--text-dark-main);
-    }
-
-    body.light .sidebar {
-      background: #f9fafb;
-      border-left: 1px solid #e5e7eb;
-      color: var(--text-light-main);
-    }
-
-    .sidebar.open {
-      transform: translateX(0%);
-    }
-
-    .sidebar-title {
-      font-size: 13px;
-      margin-bottom: 10px;
-      opacity: 0.8;
-      text-align: right;
-    }
-
-    .sidebar-link {
-      text-align: right;
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 14px;
-      cursor: pointer;
-      margin-bottom: 6px;
-      transition: background 0.15s ease, transform 0.1s ease;
-    }
-
-    body.dark .sidebar-link {
-      color: var(--text-dark-main);
-    }
-
-    body.light .sidebar-link {
-      color: var(--text-light-main);
-    }
-
-    .sidebar-link:hover {
-      transform: translateX(-2px);
-    }
-
-    body.dark .sidebar-link:hover {
-      background: #111827;
-    }
-
-    body.light .sidebar-link:hover {
-      background: #e5e7eb;
-    }
-
-    .sidebar-link.active {
-      font-weight: 700;
-    }
-
-    body.dark .sidebar-link.active {
-      background: #1f2937;
-    }
-
-    body.light .sidebar-link.active {
-      background: #d1d5db;
-    }
-
-    /* محتوى تحت الشريط العلوي */
-
-    .content-wrapper {
-      padding-top: 60px;
-      padding-inline: 8px;
-    }
-
-    /* مجموعات الأسئلة */
-
-    .section-title {
-      text-align: right;
-      font-size: 16px;
-      margin-top: 12px;
-      margin-bottom: 4px;
-      font-weight: 700;
-    }
-
-    .section-desc {
-      text-align: right;
-      font-size: 12px;
-      margin-bottom: 10px;
-      opacity: 0.8;
-    }
-
-    .question-block {
-      margin-bottom: 12px;
-      text-align: right;
-      padding: 10px;
-      border-radius: 12px;
-    }
-
-    body.dark .question-block {
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid #1f2937;
-    }
-
-    body.light .question-block {
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-    }
-
-    .question-text {
-      font-size: 13px;
-      margin-bottom: 6px;
-    }
-
-    /* سطور خيارات الإجابة */
-
-    .answer-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .answer-option {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-      font-size: 12px;
-      padding: 3px 4px;
-      border-radius: 999px;
-    }
-
-    body.dark .answer-option:hover {
-      background: #111827;
-    }
-
-    body.light .answer-option:hover {
-      background: #e5e7eb;
-    }
-
-    .answer-option input[type="radio"] {
-      display: none;
-    }
-
-    .answer-circle {
-      border-radius: 999px;
-      display: inline-block;
-      flex-shrink: 0;
-      border: 2px solid transparent;
-    }
-
-    /* أحجام الدوائر حسب الإجابة */
-    /* أجل / لا = حجم عادي */
-    .size-normal {
-      width: 18px;
-      height: 18px;
-    }
-    /* أجل غالبًا / غالبًا لا = أصغر شوي */
-    .size-small {
-      width: 14px;
-      height: 14px;
-    }
-    /* نادرًا أجل / نادرًا لا = أصغر شوي بعد */
-    .size-xs {
-      width: 12px;
-      height: 12px;
-    }
-    /* محايد = أكبر دائرة */
-    .size-large {
-      width: 24px;
-      height: 24px;
-    }
-
-    /* ألوان الدوائر */
-
-    .color-yes {
-      background: #22c55e22;
-      border-color: #22c55e;
-    }
-    .color-yes-often {
-      background: #4ade8022;
-      border-color: #4ade80;
-    }
-    .color-yes-rare {
-      background: #bbf7d022;
-      border-color: #bbf7d0;
-    }
-    .color-neutral {
-      background: #e5e7eb22;
-      border-color: #e5e7eb;
-    }
-    .color-no-rare {
-      background: #fecaca22;
-      border-color: #fecaca;
-    }
-    .color-no-often {
-      background: #f8717122;
-      border-color: #f87171;
-    }
-    .color-no {
-      background: #ef444422;
-      border-color: #ef4444;
-    }
-
-    /* عند الاختيار، نضيف بُروز بسيط حول الإجابة */
-
-    .answer-option.selected .answer-circle {
-      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.6);
-    }
-
-    .answer-option.selected {
-      font-weight: 700;
-    }
-
-    /* بطاقات النتيجة (يُستخدم شكلها في الجزء الثاني) */
-
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .card {
-      border-radius: 14px;
-      padding: 14px 16px;
-      text-align: right;
-    }
-
-    body.dark .card {
-      background: #020617;
-      border: 1px solid #1f2937;
-      box-shadow: 0 8px 26px rgba(15, 23, 42, 0.8);
-    }
-
-    body.light .card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 8px 26px rgba(148, 163, 184, 0.5);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .icon-circle {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-
-    body.dark .icon-circle {
-      background: #111827;
-      color: #f9fafb;
-    }
-
-    body.light .icon-circle {
-      background: #e5e7eb;
-      color: #111827;
-    }
-
-    .card-title {
-      font-size: 15px;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .card-sub {
-      font-size: 12px;
-      opacity: 0.8;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      margin: 2px 4px 0;
-    }
-
-    body.dark .pill {
-      background: #020617;
-      border: 1px solid #1f2937;
-      color: #e5e7eb;
-    }
-
-    body.light .pill {
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      color: #111827;
-    }
-
-    /* شريط (bar) – سيُستخدم لاحقًا */
-
-    .bar-row {
-      margin-bottom: 8px;
-    }
-
-    .bar-label {
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 3px;
-    }
-
-    .bar-track {
-      width: 100%;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--bar-bg);
-      overflow: hidden;
-    }
-
-    .bar-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 999px;
-      background: var(--bar-fill);
-      transition: width 0.5s ease;
-    }
-
-    /* دوائر أسلوب التعلم (يتم تفعيلها في الجزء الثاني) */
-
-    .learning-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .circle-meter {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .circle-outer {
-      width: 64px;
-      height: 64px;
-      border-radius: 999px;
-      border: 6px solid var(--circle-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-    }
-
-    body.dark .circle-outer {
-      background: #020617;
-      color: #e5e7eb;
-    }
-
-    body.light .circle-outer {
-      background: #f9fafb;
-      color: #111827;
-    }
-
-    .circle-label {
-      font-size: 12px;
-      opacity: 0.85;
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      .screen {
-        margin: 12px 6px;
-        padding: 14px;
-      }
-    }
-  </style>
+</html><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يوم ميلاد دانيه</title>
+    <style>
+        :root {
+            --bg: #1a1a2e;
+            --surface: #252540;
+            --pink: #f4a7b9;
+            --pink-light: #fce4ec;
+            --gold: #f5c842;
+            --white: #fff;
+            --text: #e0dce4;
+            --accent: #ff8fa3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Segoe UI', 'Arial', sans-serif;
+            background: radial-gradient(ellipse at center, #1e1e38 0%, #0d0d1f 70%);
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            cursor: default;
+            position: relative;
+        }
+
+        /* Floating background particles */
+        .bg-particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .bg-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(40px) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        /* Main container */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 500px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Title */
+        .title-area {
+            text-align: center;
+            transition: all 0.6s ease;
+        }
+        .title {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            color: var(--pink-light);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-shadow: 0 0 30px rgba(244, 167, 185, 0.3);
+            line-height: 1.5;
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            color: rgba(224, 220, 228, 0.7);
+            margin-top: 4px;
+        }
+
+        /* Puzzle area */
+        .puzzle-area {
+            width: 100%;
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .puzzle-area.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-20px);
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            gap: 0;
+        }
+
+        /* Progress slots */
+        .progress-slots {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .slot {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            border: 2px dashed rgba(244, 167, 185, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pink-light);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+        .slot.filled {
+            border-color: var(--gold);
+            background: rgba(245, 200, 66, 0.12);
+            animation: slotPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 20px rgba(245, 200, 66, 0.25);
+        }
+        @keyframes slotPop {
+            0% {
+                transform: scale(0.7);
+            }
+            60% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Letter grid */
+        .letter-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 380px;
+        }
+        .letter-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            color: #e0dce4;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .letter-btn:hover {
+            border-color: var(--pink);
+            background: rgba(244, 167, 185, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(244, 167, 185, 0.25);
+        }
+        .letter-btn:active {
+            transform: scale(0.92);
+            transition: transform 0.1s ease;
+        }
+        .letter-btn.used {
+            opacity: 0.25;
+            pointer-events: none;
+            border-color: transparent;
+            background: rgba(255, 255, 255, 0.02);
+            transform: scale(0.85);
+        }
+        .letter-btn.wrong-shake {
+            animation: shake 0.5s ease;
+            border-color: #ff6b6b !important;
+            background: rgba(255, 107, 107, 0.2) !important;
+        }
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-6px);
+            }
+            40% {
+                transform: translateX(6px);
+            }
+            60% {
+                transform: translateX(-4px);
+            }
+            80% {
+                transform: translateX(4px);
+            }
+        }
+
+        /* Hint text */
+        .hint-text {
+            font-size: 0.85rem;
+            color: rgba(224, 220, 228, 0.55);
+            text-align: center;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Canvas container */
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            transform: translateY(40px) scale(0.9);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .canvas-container.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            border-radius: 16px;
+        }
+
+        /* Age display (DOM overlay) */
+        .age-overlay {
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f5c842;
+            text-shadow: 0 0 30px rgba(245, 200, 66, 0.7), 0 0 60px rgba(245, 200, 66, 0.4);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            z-index: 2;
+            letter-spacing: 0.05em;
+        }
+        .age-overlay.changing {
+            animation: ageFlash 0.7s ease;
+        }
+        @keyframes ageFlash {
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+            30% {
+                opacity: 0;
+                transform: translateX(-50%) scale(1.8);
+            }
+            60% {
+                opacity: 1;
+                transform: translateX(-50%) scale(0.9);
+            }
+            80% {
+                transform: translateX(-50%) scale(1.05);
+            }
+        }
+
+        /* Breeze particles container */
+        .wind-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .wind-streak {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.7), transparent);
+            border-radius: 50%;
+            animation: blowAcross linear forwards;
+            opacity: 0;
+        }
+        @keyframes blowAcross {
+            0% {
+                transform: translateX(110vw);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateX(-20vw);
+                opacity: 0;
+            }
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: fixed;
+            pointer-events: none;
+            z-index: 20;
+            animation: confettiFall linear forwards;
+        }
+        @keyframes confettiFall {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* Final message */
+        .final-message {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fce4ec;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            text-shadow: 0 0 25px rgba(244, 167, 185, 0.5);
+            line-height: 1.6;
+        }
+        .final-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .final-message .age-highlight {
+            display: inline-block;
+            color: #f5c842;
+            font-size: 2.2rem;
+            text-shadow: 0 0 35px rgba(245, 200, 66, 0.8);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 420px) {
+            .letter-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
+                border-radius: 50%;
+            }
+            .slot {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+                border-radius: 10px;
+            }
+            .letter-grid {
+                gap: 8px;
+            }
+            .progress-slots {
+                gap: 7px;
+            }
+            .age-overlay {
+                font-size: 2rem;
+            }
+            .title {
+                font-size: 1.2rem;
+            }
+            .final-message {
+                font-size: 1.3rem;
+            }
+            .final-message .age-highlight {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
 </head>
+<body>
 
-<body class="dark">
+    <!-- Background floating particles -->
+    <div class="bg-particles" id="bgParticles"></div>
 
-  <!-- شريط علوي -->
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <span class="top-logo">اختبار نمط سلوك المتعلم</span>
-    </div>
-    <div class="top-bar-right">
-      <!-- زر الوضع الليلي/النهاري -->
-      <button class="icon-button" id="themeToggle" title="تبديل الوضع">
-        🌙
-      </button>
-      <!-- زر القائمة -->
-      <button class="icon-button" id="menuToggle" title="القائمة">
-        <span class="hamburger-lines">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </span>
-      </button>
-    </div>
-  </div>
+    <!-- Main container -->
+    <div class="main-container" id="mainContainer">
+        <!-- Title -->
+        <div class="title-area" id="titleArea">
+            <h1 class="title">🌟 هل أنتِ مستعدة؟ 🌟</h1>
+            <p class="subtitle">حلّي اللغز البسيط لتري المفاجأة...</p>
+        </div>
 
-  <!-- قائمة جانبية -->
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-title">انتقال سريع</div>
-    <div class="sidebar-link active" data-target="homeScreen">الرئيسية</div>
-    <div class="sidebar-link" data-target="aboutPage">ما هو الاختبار؟</div>
-    <div class="sidebar-link" data-target="introQuestionsScreen">ابدأ الاختبار</div>
-    <div class="sidebar-link" data-target="allTypesPage">عرض الأنماط</div>
-    <div class="sidebar-link" data-target="resultPage">النتيجة (بعد الاختبار)</div>
-  </div>
+        <!-- Puzzle Area -->
+        <div class="puzzle-area" id="puzzleArea">
+            <!-- Progress slots -->
+            <div class="progress-slots" id="progressSlots">
+                <div class="slot" data-index="4"></div>
+                <div class="slot" data-index="3"></div>
+                <div class="slot" data-index="2"></div>
+                <div class="slot" data-index="1"></div>
+                <div class="slot" data-index="0"></div>
+            </div>
+            <!-- Letter buttons -->
+            <div class="letter-grid" id="letterGrid"></div>
+            <p class="hint-text" id="hintText">💡 اضغطي على حروف اسمكِ بالترتيب الصحيح</p>
+        </div>
 
-  <div class="content-wrapper">
+        <!-- Canvas container -->
+        <div class="canvas-container" id="canvasContainer">
+            <canvas id="cakeCanvas"></canvas>
+            <div class="age-overlay" id="ageOverlay">15</div>
+        </div>
 
-    <!-- الرئيسية -->
-    <div id="homeScreen" class="screen">
-      <h1>اختبار نمط سلوك المتعلم</h1>
-      <p>
-        هذا الاختبار مصمم عشان يساعدك تفهم:
-        كيف تذاكر، كيف تتعامل مع طاقتك، وكيف تستغل نمطك في الدراسة بدل ما تحاربه.
-      </p>
-      <p class="small-text">
-        يعتمد على مجموعة كبيرة من الأسئلة (حوالي ٨٠ سؤال)، مع تحليل نهائي مفصل على شكل بطاقات، أشرطة، ودوائر.
-      </p>
-      <button onclick="goToSection('introQuestionsScreen')">ابدأ الاختبار الآن</button>
-      <button onclick="goToSection('aboutPage')">تعرف أكثر على فكرة الاختبار</button>
+        <!-- Final message -->
+        <div class="final-message" id="finalMessage">
+            يوم ميلاد سعيد يا دانيه 🎂<br>
+            عمركِ الآن <span class="age-highlight">16</span> سنة! 💖
+        </div>
     </div>
 
-    <!-- ما هو الاختبار -->
-    <div id="aboutPage" class="screen" style="display:none;">
-      <h2>ما فكرة اختبار نمط سلوك المتعلم؟</h2>
-      <p style="text-align:right;">
-        بدل ما يكون السؤال فقط: "ذكي أو لا؟"، هذا الاختبار يحاول يجاوب على أسئلة أعمق:
-      </p>
-      <ul style="text-align:right; font-size:13px; padding-right:24px;">
-        <li>كيف تتعامل مع طاقتك النفسية مع الدراسة؟</li>
-        <li>هل أنت شخص منظم أو فوضوي دراسيًا؟</li>
-        <li>هل تفضل التعلم لوحدك أو مع الآخرين؟</li>
-        <li>هل تميل للحفظ أكثر أو للفهم والتحليل؟</li>
-        <li>أي المواد تناسب نمطك أكثر؟ وكيف تذاكر كل مادة حسب نمطك؟</li>
-      </ul>
-      <p class="small-text" style="text-align:right;">
-        النتيجة ليست حكمًا عليك، بل "خريطة" تساعدك تفهم نفسك،
-        وتختار استراتيجيات تناسبك بدل ما تضغط نفسك بنمط ما يشبهك.
-      </p>
-      <button onclick="goToSection('introQuestionsScreen')">ابدأ الاختبار</button>
-      <button onclick="goToSection('homeScreen')">العودة للرئيسية</button>
+    <!-- Wind container -->
+    <div class="wind-container" id="windContainer"></div>
+
+    <script>
+        (function() {
+            // ============ DOM Elements ============
+            const bgParticlesContainer = document.getElementById('bgParticles');
+            const puzzleArea = document.getElementById('puzzleArea');
+            const progressSlots = document.getElementById('progressSlots');
+            const letterGrid = document.getElementById('letterGrid');
+            const hintText = document.getElementById('hintText');
+            const canvasContainer = document.getElementById('canvasContainer');
+            const canvas = document.getElementById('cakeCanvas');
+            const ctx = canvas.getContext('2d');
+            const ageOverlay = document.getElementById('ageOverlay');
+            const windContainer = document.getElementById('windContainer');
+            const finalMessage = document.getElementById('finalMessage');
+            const titleArea = document.getElementById('titleArea');
+            const mainContainer = document.getElementById('mainContainer');
+
+            // ============ State ============
+            const TARGET_NAME = ['د', 'ا', 'ن', 'ي', 'ه'];
+            const DISTRACTORS = ['م', 'س', 'ر', 'ل', 'ب', 'ك', 'و', 'ش'];
+            let currentLetterIndex = 0;
+            let phase = 'puzzle'; // puzzle | cakeReveal | cakeDisplay | breeze | ageChange | complete
+            let cakeSlideY = 0;
+            let flameFlicker = 0;
+            let flameOpacity = 1;
+            let displayAge = 15;
+            let ageTransitionProgress = 0;
+            let confettiParticles = [];
+            let animationId;
+
+            // Canvas dimensions
+            const CANVAS_W = 400;
+            const CANVAS_H = 500;
+            const OFF_W = 40;
+            const OFF_H = 60;
+            const SCALE = 10;
+
+            // Offscreen canvas for pixel cake
+            const offCanvas = document.createElement('canvas');
+            offCanvas.width = OFF_W;
+            offCanvas.height = OFF_H;
+            const offCtx = offCanvas.getContext('2d');
+
+            // ============ Background particles ============
+            function createBgParticles() {
+                const count = 35;
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('bg-particle');
+                    const size = Math.random() * 3 + 1.5;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.animationDuration = Math.random() * 18 + 12 + 's';
+                    particle.style.animationDelay = Math.random() * 15 + 's';
+                    bgParticlesContainer.appendChild(particle);
+                }
+            }
+
+            // ============ Puzzle Setup ============
+            function setupPuzzle() {
+                // Create all letters (target + distractors)
+                const allLetters = [...TARGET_NAME];
+                // Add some distractors
+                const numDistractors = 7;
+                const shuffledDistractors = [...DISTRACTORS].sort(() => Math.random() - 0.5);
+                const selectedDistractors = shuffledDistractors.slice(0, numDistractors);
+                allLetters.push(...selectedDistractors);
+
+                // Shuffle all letters
+                const shuffled = allLetters.sort(() => Math.random() - 0.5);
+
+                // Render letter buttons
+                letterGrid.innerHTML = '';
+                shuffled.forEach((letter, index) => {
+                    const btn = document.createElement('button');
+                    btn.classList.add('letter-btn');
+                    btn.textContent = letter;
+                    btn.dataset.letter = letter;
+                    btn.dataset.index = index;
+                    btn.addEventListener('click', () => handleLetterClick(btn, letter));
+                    // Add touch event for mobile
+                    btn.addEventListener('touchend', (e) => {
+                        e.preventDefault();
+                        handleLetterClick(btn, letter);
+                    });
+                    letterGrid.appendChild(btn);
+                });
+
+                // Reset progress slots
+                const slots = progressSlots.querySelectorAll('.slot');
+                slots.forEach(slot => {
+                    slot.classList.remove('filled');
+                    slot.textContent = '';
+                });
+                currentLetterIndex = 0;
+                hintText.textContent = '💡 اضغطي على حروف اسمكِ بالترتيب الصحيح';
+                hintText.style.opacity = '1';
+            }
+
+            function handleLetterClick(btn, letter) {
+                if (phase !== 'puzzle') return;
+                if (btn.classList.contains('used')) return;
+
+                if (letter === TARGET_NAME[currentLetterIndex]) {
+                    // Correct letter!
+                    btn.classList.add('used');
+                    // Fill the appropriate slot (RTL: index 0 is rightmost for first letter)
+                    const slotIndex = currentLetterIndex;
+                    const slots = progressSlots.querySelectorAll('.slot');
+                    const targetSlot = slots[slotIndex];
+                    if (targetSlot) {
+                        targetSlot.textContent = letter;
+                        targetSlot.classList.add('filled');
+                    }
+                    currentLetterIndex++;
+
+                    // Check if puzzle complete
+                    if (currentLetterIndex >= TARGET_NAME.length) {
+                        setTimeout(() => {
+                            completePuzzle();
+                        }, 500);
+                    } else {
+                        hintText.textContent = '👏 أحسنتِ! استمري...';
+                        hintText.style.opacity = '1';
+                        setTimeout(() => {
+                            hintText.style.opacity = '0.6';
+                        }, 1200);
+                    }
+                } else {
+                    // Wrong letter
+                    btn.classList.add('wrong-shake');
+                    hintText.textContent = '❌ ليس هذا الحرف... حاولي مرة أخرى';
+                    hintText.style.opacity = '1';
+                    setTimeout(() => {
+                        btn.classList.remove('wrong-shake');
+                        hintText.style.opacity = '0.7';
+                    }, 600);
+                }
+            }
+
+            function completePuzzle() {
+                phase = 'cakeReveal';
+                hintText.textContent = '✨ أحسنتِ! تم حل اللغز... ✨';
+                hintText.style.opacity = '1';
+
+                // Hide puzzle after brief delay
+                setTimeout(() => {
+                    puzzleArea.classList.add('hidden');
+                    titleArea.querySelector('.title').textContent = '🎂 تفضّلي... 🎂';
+                    titleArea.querySelector('.subtitle').textContent = '';
+                    // Reveal canvas
+                    canvasContainer.classList.add('revealed');
+                    initCanvas();
+                    cakeSlideY = CANVAS_H;
+                    animateCakeReveal();
+                }, 900);
+            }
+
+            // ============ Canvas & Cake ============
+            function initCanvas() {
+                canvas.width = CANVAS_W;
+                canvas.height = CANVAS_H;
+                ctx.imageSmoothingEnabled = false;
+                offCtx.imageSmoothingEnabled = false;
+                drawStaticCake();
+            }
+
+            function drawStaticCake() {
+                offCtx.clearRect(0, 0, OFF_W, OFF_H);
+
+                // --- Plate ---
+                offCtx.fillStyle = '#d4c5b9';
+                offCtx.fillRect(3, 51, 34, 5);
+                offCtx.fillStyle = '#c4b5a9';
+                offCtx.fillRect(4, 52, 32, 3);
+                // Plate highlight
+                offCtx.fillStyle = '#e8dcd3';
+                offCtx.fillRect(5, 51, 30, 1);
+
+                // --- Bottom tier (wider) ---
+                const btX = 7;
+                const btY = 36;
+                const btW = 26;
+                const btH = 15;
+                // Cake body
+                offCtx.fillStyle = '#e8917e';
+                offCtx.fillRect(btX, btY, btW, btH);
+                // Darker shading on sides
+                offCtx.fillStyle = '#d4796b';
+                offCtx.fillRect(btX, btY, 2, btH);
+                offCtx.fillRect(btX + btW - 2, btY, 2, btH);
+                // Lighter center highlight
+                offCtx.fillStyle = '#f0a090';
+                offCtx.fillRect(btX + 8, btY, 10, btH);
+                // Frosting top of bottom tier
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(btX - 1, btY - 2, btW + 2, 3);
+                offCtx.fillStyle = '#ffe8e0';
+                offCtx.fillRect(btX, btY - 1, btW, 2);
+                // Frosting drips
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(btX, btY + 1, 1, 5);
+                offCtx.fillRect(btX + 6, btY + 1, 1, 4);
+                offCtx.fillRect(btX + btW - 2, btY + 1, 1, 6);
+                offCtx.fillRect(btX + btW - 8, btY + 1, 1, 3);
+
+                // --- Top tier ---
+                const ttX = 11;
+                const ttY = 24;
+                const ttW = 18;
+                const ttH = 12;
+                offCtx.fillStyle = '#f4a7b9';
+                offCtx.fillRect(ttX, ttY, ttW, ttH);
+                offCtx.fillStyle = '#e895a5';
+                offCtx.fillRect(ttX, ttY, 2, ttH);
+                offCtx.fillRect(ttX + ttW - 2, ttY, 2, ttH);
+                offCtx.fillStyle = '#fbbac8';
+                offCtx.fillRect(ttX + 6, ttY, 6, ttH);
+                // Frosting top of top tier
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(ttX - 1, ttY - 2, ttW + 2, 3);
+                offCtx.fillStyle = '#ffe8e0';
+                offCtx.fillRect(ttX, ttY - 1, ttW, 2);
+                // Frosting drips
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(ttX + 1, ttY + 1, 1, 4);
+                offCtx.fillRect(ttX + ttW - 3, ttY + 1, 1, 5);
+
+                // --- Sprinkles / decorations ---
+                const sprinkleColors = ['#ff6b8a', '#ffcc00', '#66ddff', '#ff9e6d', '#a0e7a0', '#fff'];
+                for (let i = 0; i < 18; i++) {
+                    const sx = btX + 2 + Math.floor(Math.random() * (btW - 4));
+                    const sy = btY + 2 + Math.floor(Math.random() * (btH - 3));
+                    offCtx.fillStyle = sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
+                    offCtx.fillRect(sx, sy, 1, 1);
+                }
+                for (let i = 0; i < 10; i++) {
+                    const sx = ttX + 2 + Math.floor(Math.random() * (ttW - 4));
+                    const sy = ttY + 2 + Math.floor(Math.random() * (ttH - 3));
+                    offCtx.fillStyle = sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
+                    offCtx.fillRect(sx, sy, 1, 1);
+                }
+
+                // --- Candles ---
+                const candle1X = 16;
+                const candle2X = 22;
+                const candleY = 16;
+                const candleH = 8;
+                // Candle 1
+                offCtx.fillStyle = '#ffe8cc';
+                offCtx.fillRect(candle1X, candleY, 2, candleH);
+                offCtx.fillStyle = '#ffd9a8';
+                offCtx.fillRect(candle1X + 1, candleY, 1, candleH);
+                // Candle 2
+                offCtx.fillStyle = '#ffe8cc';
+                offCtx.fillRect(candle2X, candleY, 2, candleH);
+                offCtx.fillStyle = '#ffd9a8';
+                offCtx.fillRect(candle2X + 1, candleY, 1, candleH);
+                // Candle stripes
+                offCtx.fillStyle = '#f5c8a0';
+                offCtx.fillRect(candle1X, candleY + 2, 2, 1);
+                offCtx.fillRect(candle1X, candleY + 5, 2, 1);
+                offCtx.fillRect(candle2X, candleY + 2, 2, 1);
+                offCtx.fillRect(candle2X, candleY + 5, 2, 1);
+            }
+
+            function drawFlamesOnMain(ctx, frame, opacity) {
+                // Flame positions in main canvas coordinates
+                const flame1CX = (16 + 1) * SCALE; // center of candle 1
+                const flame1CY = 14 * SCALE;
+                const flame2CX = (22 + 1) * SCALE;
+                const flame2CY = 14 * SCALE;
+
+                drawSingleFlame(ctx, flame1CX, flame1CY, frame, opacity);
+                drawSingleFlame(ctx, flame2CX, flame2CY, frame + 1.7, opacity);
+            }
+
+            function drawSingleFlame(ctx, cx, cy, frame, opacity) {
+                if (opacity <= 0.01) return;
+                ctx.save();
+                ctx.globalAlpha = Math.min(1, Math.max(0, opacity));
+
+                const flicker = Math.sin(frame * 0.7) * 3 + Math.cos(frame * 1.3) * 2;
+                const h = 12 + flicker;
+                const w = 6 + Math.abs(flicker) * 0.8;
+
+                // Outer glow
+                const glowGrad = ctx.createRadialGradient(cx, cy - h * 0.3, w * 0.5, cx, cy, w * 2.5);
+                glowGrad.addColorStop(0, 'rgba(255,180,30,0.8)');
+                glowGrad.addColorStop(0.4, 'rgba(255,140,20,0.5)');
+                glowGrad.addColorStop(0.7, 'rgba(255,100,10,0.15)');
+                glowGrad.addColorStop(1, 'rgba(255,60,5,0)');
+                ctx.fillStyle = glowGrad;
+                ctx.beginPath();
+                ctx.arc(cx, cy - h * 0.25, w * 2.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Outer flame (orange)
+                ctx.fillStyle = '#ff8c30';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.quadraticCurveTo(cx - w, cy - h * 0.6, cx, cy - h);
+                ctx.quadraticCurveTo(cx + w, cy - h * 0.6, cx, cy);
+                ctx.fill();
+
+                // Inner flame (yellow)
+                const innerH = h * 0.55;
+                const innerW = w * 0.5;
+                ctx.fillStyle = '#ffd54f';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - 2);
+                ctx.quadraticCurveTo(cx - innerW, cy - innerH * 0.6, cx, cy - innerH);
+                ctx.quadraticCurveTo(cx + innerW, cy - innerH * 0.6, cx, cy - 2);
+                ctx.fill();
+
+                // White-hot core
+                const coreH = innerH * 0.35;
+                ctx.fillStyle = '#fff8e1';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - 3);
+                ctx.quadraticCurveTo(cx - 1.5, cy - coreH * 0.7, cx, cy - coreH);
+                ctx.quadraticCurveTo(cx + 1.5, cy - coreH * 0.7, cx, cy - 3);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function renderFullCanvas(slideY, flameFrame, flameOp) {
+                ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+
+                // Dark background for canvas
+                ctx.fillStyle = '#1a1a2e';
+                ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+
+                // Subtle radial glow behind cake
+                const glowGrad = ctx.createRadialGradient(CANVAS_W / 2, CANVAS_H * 0.45, CANVAS_W * 0.15,
+                    CANVAS_W / 2, CANVAS_H * 0.5, CANVAS_W * 0.7);
+                glowGrad.addColorStop(0, 'rgba(244,167,185,0.18)');
+                glowGrad.addColorStop(1, 'rgba(26,26,46,0)');
+                ctx.fillStyle = glowGrad;
+                ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+
+                // Draw pixel cake
+                const destY = slideY;
+                ctx.drawImage(offCanvas, 0, 0, OFF_W, OFF_H, 0, destY, CANVAS_W, CANVAS_H);
+
+                // Draw flames on top (if cake is visible and flames not blown out)
+                if (slideY < CANVAS_H * 0.5 && flameOp > 0.01) {
+                    drawFlamesOnMain(ctx, flameFrame, flameOp);
+                }
+
+                // Sparkles around cake area
+                if (slideY < CANVAS_H * 0.3) {
+                    drawSparkles(ctx, flameFrame);
+                }
+            }
+
+            function drawSparkles(ctx, frame) {
+                const sparklePositions = [
+                    { x: 0.35, y: 0.28 }, { x: 0.6, y: 0.25 }, { x: 0.3, y: 0.35 },
+                    { x: 0.65, y: 0.32 }, { x: 0.4, y: 0.22 }, { x: 0.55, y: 0.2 },
+                    { x: 0.28, y: 0.4 }, { x: 0.68, y: 0.38 }, { x: 0.45, y: 0.18 },
+                ];
+                sparklePositions.forEach((pos, i) => {
+                    const sx = pos.x * CANVAS_W;
+                    const sy = pos.y * CANVAS_H + cakeSlideY;
+                    const brightness = 0.3 + 0.7 * Math.abs(Math.sin(frame * 0.04 + i * 1.8));
+                    if (brightness < 0.35) return;
+                    ctx.fillStyle = `rgba(255,255,240,${brightness * 0.9})`;
+                    const size = 2 + brightness * 3;
+                    ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
+                    // Cross sparkle
+                    if (brightness > 0.7) {
+                        ctx.fillStyle = `rgba(255,255,240,${brightness * 0.6})`;
+                        ctx.fillRect(sx - size * 1.2, sy - 0.5, size * 2.4, 1);
+                        ctx.fillRect(sx - 0.5, sy - size * 1.2, 1, size * 2.4);
+                    }
+                });
+            }
+
+            // ============ Cake Reveal Animation ============
+            function animateCakeReveal() {
+                const targetY = 0;
+                const startY = CANVAS_H;
+                const duration = 1200;
+                const startTime = performance.now();
+
+                function step(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(1, elapsed / duration);
+                    // Ease out (cubic)
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    cakeSlideY = startY + (targetY - startY) * eased;
+
+                    renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+
+                    if (progress < 1) {
+                        animationId = requestAnimationFrame(step);
+                    } else {
+                        cakeSlideY = targetY;
+                        phase = 'cakeDisplay';
+                        flameOpacity = 1;
+                        // Start flame animation
+                        startFlameAnimation();
+                        // Schedule breeze after delay
+                        setTimeout(() => {
+                            if (phase === 'cakeDisplay') {
+                                triggerBreeze();
+                            }
+                        }, 2800);
+                    }
+                }
+                animationId = requestAnimationFrame(step);
+            }
+
+            function startFlameAnimation() {
+                function flameLoop(now) {
+                    if (phase === 'cakeDisplay' || phase === 'breeze') {
+                        flameFlicker += 0.16;
+                        renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+                        animationId = requestAnimationFrame(flameLoop);
+                    } else if (phase === 'ageChange' || phase === 'complete') {
+                        renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+                        // Still render but no flame animation
+                    }
+                }
+                animationId = requestAnimationFrame(flameLoop);
+            }
+
+            // ============ Breeze ============
+            function triggerBreeze() {
+                phase = 'breeze';
+                // Create wind streaks
+                const streakCount = 22;
+                const candleScreenY = canvasContainer.getBoundingClientRect().top +
+                    (canvasContainer.getBoundingClientRect().height * 0.25);
+
+                for (let i = 0; i < streakCount; i++) {
+                    const streak = document.createElement('div');
+                    streak.classList.add('wind-streak');
+                    const yOffset = (Math.random() - 0.5) * 200;
+                    streak.style.top = (candleScreenY + yOffset) + 'px';
+                    streak.style.width = (Math.random() * 120 + 60) + 'px';
+                    streak.style.height = (Math.random() * 3 + 1.5) + 'px';
+                    streak.style.animationDuration = (Math.random() * 1.2 + 1) + 's';
+                    streak.style.animationDelay = (Math.random() * 0.7) + 's';
+                    windContainer.appendChild(streak);
+
+                    // Clean up after animation
+                    const totalDuration = parseFloat(streak.style.animationDuration) + parseFloat(streak.style
+                        .animationDelay);
+                    setTimeout(() => {
+                        if (streak.parentNode) streak.parentNode.removeChild(streak);
+                    }, totalDuration * 1000 + 300);
+                }
+
+                // Start dimming the flame after wind passes
+                setTimeout(() => {
+                    const dimInterval = setInterval(() => {
+                        flameOpacity -= 0.06;
+                        if (flameOpacity <= 0) {
+                            flameOpacity = 0;
+                            clearInterval(dimInterval);
+                            // Age change!
+                            triggerAgeChange();
+                        }
+                    }, 40);
+                }, 900);
+            }
+
+            // ============ Age Change ============
+            function triggerAgeChange() {
+                phase = 'ageChange';
+                ageOverlay.classList.add('changing');
+
+                // Update age mid-animation
+                setTimeout(() => {
+                    ageOverlay.textContent = '16';
+                    displayAge = 16;
+                }, 280);
+
+                // After animation
+                setTimeout(() => {
+                    ageOverlay.classList.remove('changing');
+                    ageOverlay.textContent = '16';
+                    displayAge = 16;
+                    phase = 'complete';
+                    spawnConfetti();
+                    showFinalMessage();
+                }, 750);
+            }
+
+            // ============ Confetti ============
+            function spawnConfetti() {
+                const colors = ['#ff6b8a', '#ffcc00', '#66ddff', '#ff9e6d', '#a0e7a0',
+                    '#ff80ab', '#ffd740', '#40c4ff', '#b2ff59', '#ff8a80',
+                    '#fff176', '#84ffff', '#ffab91', '#e8b7d4', '#f5c842'
+                ];
+                const cakeRect = canvasContainer.getBoundingClientRect();
+                const centerX = cakeRect.left + cakeRect.width / 2;
+                const centerY = cakeRect.top + cakeRect.height * 0.3;
+
+                for (let i = 0; i < 80; i++) {
+                    const piece = document.createElement('div');
+                    piece.classList.add('confetti-piece');
+                    piece.style.left = centerX + 'px';
+                    piece.style.top = centerY + 'px';
+                    const size = Math.random() * 8 + 4;
+                    piece.style.width = size + 'px';
+                    piece.style.height = size * (Math.random() * 0.6 + 0.4) + 'px';
+                    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 350 + 100;
+                    const dx = Math.cos(angle) * distance;
+                    const dy = Math.sin(angle) * distance - Math.random() * 200;
+                    piece.style.setProperty('--dx', dx + 'px');
+                    piece.style.setProperty('--dy', dy + 'px');
+                    piece.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+                    piece.style.animationDuration = (Math.random() * 2 + 1.8) + 's';
+                    piece.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(piece);
+
+                    // Clean up
+                    const totalDur = parseFloat(piece.style.animationDuration) + parseFloat(piece.style
+                    .animationDelay);
+                    setTimeout(() => {
+                        if (piece.parentNode) piece.parentNode.removeChild(piece);
+                    }, totalDur * 1000 + 200);
+                }
+            }
+
+            // ============ Final Message ============
+            function showFinalMessage() {
+                finalMessage.classList.add('show');
+                titleArea.querySelector('.title').textContent = '💖 مبارك يا دانيه 💖';
+                titleArea.querySelector('.subtitle').textContent = '';
+                // Add subtle sparkle to age highlight
+                const ageSpan = finalMessage.querySelector('.age-highlight');
+                if (ageSpan) {
+                    ageSpan.textContent = '16';
+                }
+            }
+
+            // ============ Global animation loop (fallback) ============
+            function globalAnimationLoop(now) {
+                if (phase === 'cakeDisplay' || phase === 'breeze') {
+                    // handled by flameLoop
+                } else if (phase === 'ageChange' || phase === 'complete') {
+                    renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+                }
+                if (phase !== 'puzzle' && phase !== 'cakeReveal') {
+                    animationId = requestAnimationFrame(globalAnimationLoop);
+                }
+            }
+
+            // ============ Initialize ============
+            function init() {
+                createBgParticles();
+                setupPuzzle();
+                canvasContainer.classList.remove('revealed');
+                finalMessage.classList.remove('show');
+                ageOverlay.textContent = '15';
+                displayAge = 15;
+                flameOpacity = 1;
+                flameFlicker = 0;
+                cakeSlideY = 0;
+                phase = 'puzzle';
+                currentLetterIndex = 0;
+                // Draw initial empty canvas
+                ctx.fillStyle = '#1a1a2e';
+                ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+                // Start global loop for later phases
+                animationId = requestAnimationFrame(globalAnimationLoop);
+            }
+
+            init();
+
+            // ============ Handle window resize for wind Y position ============
+            // (Wind positions are recalculated when breeze triggers, so this is fine)
+
+            console.log('🌟 موقع يوم ميلاد دانيه جاهز! 🌟');
+            console.log('💡 حلّي اللغز: اضغطي على حروف اسم "دانيه" بالترتيب');
+            console.log('🎂 بعدها راح تشوفين الكيكة والبكسلات والنسمة تطفي الشمعة!');
+            console.log('💖 عمرك بيتغير من 15 إلى 16');
+        })();
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يوم ميلاد دانيه</title>
+    <style>
+        :root {
+            --bg: #1a1a2e;
+            --surface: #252540;
+            --pink: #f4a7b9;
+            --pink-light: #fce4ec;
+            --gold: #f5c842;
+            --white: #fff;
+            --text: #e0dce4;
+            --accent: #ff8fa3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Segoe UI', 'Arial', sans-serif;
+            background: radial-gradient(ellipse at center, #1e1e38 0%, #0d0d1f 70%);
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            cursor: default;
+            position: relative;
+        }
+
+        /* Floating background particles */
+        .bg-particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .bg-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(40px) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        /* Main container */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 500px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Title */
+        .title-area {
+            text-align: center;
+            transition: all 0.6s ease;
+        }
+        .title {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            color: var(--pink-light);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-shadow: 0 0 30px rgba(244, 167, 185, 0.3);
+            line-height: 1.5;
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            color: rgba(224, 220, 228, 0.7);
+            margin-top: 4px;
+        }
+
+        /* Puzzle area */
+        .puzzle-area {
+            width: 100%;
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .puzzle-area.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-20px);
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            gap: 0;
+        }
+
+        /* Progress slots */
+        .progress-slots {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .slot {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            border: 2px dashed rgba(244, 167, 185, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pink-light);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+        .slot.filled {
+            border-color: var(--gold);
+            background: rgba(245, 200, 66, 0.12);
+            animation: slotPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 20px rgba(245, 200, 66, 0.25);
+        }
+        @keyframes slotPop {
+            0% {
+                transform: scale(0.7);
+            }
+            60% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Letter grid */
+        .letter-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 380px;
+        }
+        .letter-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            color: #e0dce4;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .letter-btn:hover {
+            border-color: var(--pink);
+            background: rgba(244, 167, 185, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(244, 167, 185, 0.25);
+        }
+        .letter-btn:active {
+            transform: scale(0.92);
+            transition: transform 0.1s ease;
+        }
+        .letter-btn.used {
+            opacity: 0.25;
+            pointer-events: none;
+            border-color: transparent;
+            background: rgba(255, 255, 255, 0.02);
+            transform: scale(0.85);
+        }
+        .letter-btn.wrong-shake {
+            animation: shake 0.5s ease;
+            border-color: #ff6b6b !important;
+            background: rgba(255, 107, 107, 0.2) !important;
+        }
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-6px);
+            }
+            40% {
+                transform: translateX(6px);
+            }
+            60% {
+                transform: translateX(-4px);
+            }
+            80% {
+                transform: translateX(4px);
+            }
+        }
+
+        /* Hint text */
+        .hint-text {
+            font-size: 0.85rem;
+            color: rgba(224, 220, 228, 0.55);
+            text-align: center;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Canvas container */
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            transform: translateY(40px) scale(0.9);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .canvas-container.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            border-radius: 16px;
+        }
+
+        /* Age display (DOM overlay) */
+        .age-overlay {
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f5c842;
+            text-shadow: 0 0 30px rgba(245, 200, 66, 0.7), 0 0 60px rgba(245, 200, 66, 0.4);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            z-index: 2;
+            letter-spacing: 0.05em;
+        }
+        .age-overlay.changing {
+            animation: ageFlash 0.7s ease;
+        }
+        @keyframes ageFlash {
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+            30% {
+                opacity: 0;
+                transform: translateX(-50%) scale(1.8);
+            }
+            60% {
+                opacity: 1;
+                transform: translateX(-50%) scale(0.9);
+            }
+            80% {
+                transform: translateX(-50%) scale(1.05);
+            }
+        }
+
+        /* Breeze particles container */
+        .wind-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .wind-streak {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.7), transparent);
+            border-radius: 50%;
+            animation: blowAcross linear forwards;
+            opacity: 0;
+        }
+        @keyframes blowAcross {
+            0% {
+                transform: translateX(110vw);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateX(-20vw);
+                opacity: 0;
+            }
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: fixed;
+            pointer-events: none;
+            z-index: 20;
+            animation: confettiFall linear forwards;
+        }
+        @keyframes confettiFall {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* Final message */
+        .final-message {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fce4ec;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            text-shadow: 0 0 25px rgba(244, 167, 185, 0.5);
+            line-height: 1.6;
+        }
+        .final-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .final-message .age-highlight {
+            display: inline-block;
+            color: #f5c842;
+            font-size: 2.2rem;
+            text-shadow: 0 0 35px rgba(245, 200, 66, 0.8);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 420px) {
+            .letter-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
+                border-radius: 50%;
+            }
+            .slot {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+                border-radius: 10px;
+            }
+            .letter-grid {
+                gap: 8px;
+            }
+            .progress-slots {
+                gap: 7px;
+            }
+            .age-overlay {
+                font-size: 2rem;
+            }
+            .title {
+                font-size: 1.2rem;
+            }
+            .final-message {
+                font-size: 1.3rem;
+            }
+            .final-message .age-highlight {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background floating particles -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- Main container -->
+    <div class="main-container" id="mainContainer">
+        <!-- Title -->
+        <div class="title-area" id="titleArea">
+            <h1 class="title">🌟 هل أنتِ مستعدة؟ 🌟</h1>
+            <p class="subtitle">حلّي اللغز البسيط لتري المفاجأة...</p>
+        </div>
+
+        <!-- Puzzle Area -->
+        <div class="puzzle-area" id="puzzleArea">
+            <!-- Progress slots -->
+            <div class="progress-slots" id="progressSlots">
+                <div class="slot" data-index="4"></div>
+                <div class="slot" data-index="3"></div>
+                <div class="slot" data-index="2"></div>
+                <div class="slot" data-index="1"></div>
+                <div class="slot" data-index="0"></div>
+            </div>
+            <!-- Letter buttons -->
+            <div class="letter-grid" id="letterGrid"></div>
+            <p class="hint-text" id="hintText">💡 اضغطي على حروف اسمكِ بالترتيب الصحيح</p>
+        </div>
+
+        <!-- Canvas container -->
+        <div class="canvas-container" id="canvasContainer">
+            <canvas id="cakeCanvas"></canvas>
+            <div class="age-overlay" id="ageOverlay">15</div>
+        </div>
+
+        <!-- Final message -->
+        <div class="final-message" id="finalMessage">
+            يوم ميلاد سعيد يا دانيه 🎂<br>
+            عمركِ الآن <span class="age-highlight">16</span> سنة! 💖
+        </div>
     </div>
 
-    <!-- عرض الأنماط -->
-    <div id="allTypesPage" class="screen" style="display:none;">
-      <h2>بعض الأنماط المحتملة للمتعلمين</h2>
-      <p class="small-text" style="text-align:right;">
-        هذه أمثلة فقط. النتيجة الفعلية يتم توليدها بناءً على إجاباتك وتفاصيل أخرى.
-      </p>
-      <ul id="allTypesList" style="text-align:right; font-size:13px; padding-right:24px;"></ul>
-      <button onclick="goToSection('homeScreen')">العودة للرئيسية</button>
-    </div>
-
-    <!-- الجزء الأول من الأسئلة: معلومات أساسية (داخل نفس خطوة الأسئلة الرئيسية) -->
-    <div id="introQuestionsScreen" class="screen" style="display:none;">
-      <h2>خطوة واحدة… لكن بأقسام متعددة</h2>
-      <p class="small-text">
-        راح نمر على مجموعة أسئلة في أقسام مختلفة. جاوب بهدوء وبما يعبر عنك غالبًا، مو عن "الصورة المثالية".
-      </p>
-
-      <div class="section-title">أولاً: معلومات بسيطة عنك</div>
-      <div class="section-desc">هذي ما تدخل مباشرة في النقاط، لكنها تساعد في صياغة النتيجة.</div>
-
-      <div class="question-block">
-        <div class="question-text">اسمك (اختياري):</div>
-        <input type="text" id="userName" placeholder="تقدر تتركه فارغ إذا حبيت">
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">الجنس:</div>
-        <select id="userGender">
-          <option value="">اختر</option>
-          <option value="ذكر">ذكر</option>
-          <option value="أنثى">أنثى</option>
-        </select>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">العمر:</div>
-        <input type="number" id="userAge" min="6" max="90" placeholder="مثل: 16">
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">مرحلتك الدراسية الحالية:</div>
-        <select id="userStage">
-          <option value="">اختر</option>
-          <option value="ابتدائي">ابتدائي</option>
-          <option value="متوسط">متوسط</option>
-          <option value="ثانوي">ثانوي</option>
-          <option value="جامعة">جامعة</option>
-          <option value="أخرى">أخرى</option>
-        </select>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">لماذا تستخدم هذا الاختبار؟</div>
-        <select id="userReason">
-          <option value="">اختر</option>
-          <option value="تحسين دراستي">أبغى أحسن دراستي</option>
-          <option value="معرفة نمطي">أبغى أعرف نمطي</option>
-          <option value="الفضول">مجرد فضول</option>
-          <option value="مساعدة شخص آخر">أساعد شخص آخر</option>
-        </select>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">نمط MBTI (اختياري):</div>
-        <select id="userMBTI">
-          <option value="">لا أعرف / لا أريد الاختيار</option>
-          <option>INTJ</option><option>INTP</option><option>ENTJ</option><option>ENTP</option>
-          <option>INFJ</option><option>INFP</option><option>ENFJ</option><option>ENFP</option>
-          <option>ISTJ</option><option>ISFJ</option><option>ESTJ</option><option>ESFJ</option>
-          <option>ISTP</option><option>ISFP</option><option>ESTP</option><option>ESFP</option>
-        </select>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">أسلوب التعلم الأقرب لك (تقريبي):</div>
-        <select id="userLearningStyle">
-          <option value="">اختر</option>
-          <option value="visual">بصري (أحب الصور والمخططات)</option>
-          <option value="auditory">سمعي (أستوعب بالشرح والكلام)</option>
-          <option value="kinesthetic">حركي (أتعلم بالتجربة والحركة)</option>
-          <option value="readwrite">قراءة/كتابة (أحب النصوص والملخصات)</option>
-        </select>
-      </div>
-
-      <button onclick="goToSection('bigQuestionsScreen')">التالي: الأسئلة التفصيلية</button>
-      <button onclick="goToSection('homeScreen')">العودة للرئيسية</button>
-    </div>
-
-    <!-- صفحة الأسئلة الكبيرة (حوالي 80 سؤال) -->
-
-    <div id="bigQuestionsScreen" class="screen" style="display:none;">
-      <h2>الأسئلة التفصيلية عن سلوكك الدراسي</h2>
-      <p class="small-text">
-        لكل سؤال، اختر واحد من الخيارات السبعة:
-        أجل، أجل غالبًا، نادرًا أجل، محايد، نادرًا لا، غالبًا لا، لا.
-        حجم الدائرة يعبر عن قوة اختيارك (المحايد أكبر شيء).
-      </p>
-
-      <!-- سنستخدم نفس نمط الإجابات لكل سؤال: -->
-      <!-- name = qX ، والقيمة value = one_of(yes, yes_often, yes_rare, neutral, no_rare, no_often, no) -->
-
-      <!-- قسم 1: الانضباط -->
-      <div class="section-title">القسم 1: الانضباط الدراسي</div>
-      <div class="section-desc">كيف تلتزم بالمذاكرة على المدى البعيد؟</div>
-
-      <div class="question-block">
-        <div class="question-text">١) ألتزم غالبًا بخطة دراسية أو جدول محدد للمذاكرة.</div>
-        <div class="answer-row" data-question="q1">
-          <!-- أجل -->
-          <label class="answer-option">
-            <input type="radio" name="q1" value="yes">
-            <span class="answer-circle size-normal color-yes"></span> أجل
-          </label>
-          <!-- أجل غالبًا -->
-          <label class="answer-option">
-            <input type="radio" name="q1" value="yes_often">
-            <span class="answer-circle size-small color-yes-often"></span> أجل غالبًا
-          </label>
-          <!-- نادرًا أجل -->
-          <label class="answer-option">
-            <input type="radio" name="q1" value="yes_rare">
-            <span class="answer-circle size-xs color-yes-rare"></span> نادرًا أجل
-          </label>
-          <!-- محايد -->
-          <label class="answer-option">
-            <input type="radio" name="q1" value="neutral">
-            <span class="answer-circle size-large color-neutral"></span> محايد
-          </label>
-          <!-- نادرًا لا -->
-          <label class="answer-option">
-            <input type="radio" name="q1" value="no_rare">
-            <span class="answer-circle size-xs color-no-rare"></span> نادرًا لا
-          </label>
-          <!-- غالبًا لا -->
-          <label class="answer-option">
-            <input type="radio" name="q1" value="no_often">
-            <span class="answer-circle size-small color-no-often"></span> غالبًا لا
-          </label>
-          <!-- لا -->
-          <label class="answer-option">
-            <input type="radio" name="q1" value="no">
-            <span class="answer-circle size-normal color-no"></span> لا
-          </label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">٢) حتى لو ما لي نفس، أحيانًا أجبر نفسي أذاكر شيء بسيط عشان ما أنقطع تمامًا.</div>
-        <div class="answer-row" data-question="q2">
-          <label class="answer-option"><input type="radio" name="q2" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q2" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q2" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q2" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q2" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q2" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q2" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">٣) أسوي جداول خطة مذاكرة، لكن غالبًا ما ألتزم فيها فعلًا.</div>
-        <div class="answer-row" data-question="q3">
-          <label class="answer-option"><input type="radio" name="q3" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q3" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q3" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q3" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q3" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q3" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q3" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">٤) غالبًا أذاكر بجدية فقط لما يقرب الاختبار.</div>
-        <div class="answer-row" data-question="q4">
-          <label class="answer-option"><input type="radio" name="q4" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q4" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q4" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q4" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q4" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q4" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q4" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <!-- قسم 2: التركيز والتشتت -->
-      <div class="section-title">القسم 2: التركيز والتشتت</div>
-      <div class="section-desc">كيف يتعامل عقلك مع المشتتات أثناء المذاكرة؟</div>
-
-      <div class="question-block">
-        <div class="question-text">٥) أقدر أركز على المذاكرة فترة معقولة إذا سكّرت الجوال والمشتتات.</div>
-        <div class="answer-row" data-question="q5">
-          <label class="answer-option"><input type="radio" name="q5" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q5" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q5" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q5" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q5" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q5" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q5" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">٦) الجوال واحد من أكبر أسباب تشتتي لما أفتح الكتاب.</div>
-        <div class="answer-row" data-question="q6">
-          <label class="answer-option"><input type="radio" name="q6" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q6" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q6" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q6" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q6" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q6" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q6" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">٧) حتى الأصوات البسيطة حولي (أهل، شارع، طقطقة) تكسر تركيزي.</div>
-        <div class="answer-row" data-question="q7">
-          <label class="answer-option"><input type="radio" name="q7" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q7" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q7" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q7" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q7" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q7" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q7" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">٨) إذا دخلت جو المذاكرة، أقدر أقطع وقت طويل بدون ما أحس.</div>
-        <div class="answer-row" data-question="q8">
-          <label class="answer-option"><input type="radio" name="q8" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q8" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q8" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q8" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q8" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q8" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q8" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <!-- قسم 3: التنظيم والفوضى -->
-      <div class="section-title">القسم 3: التنظيم والفوضى الدراسية</div>
-      <div class="section-desc">كيف شكل دفاترك، أوراقك، وطريقة حفظك للمعلومات؟</div>
-
-      <div class="question-block">
-        <div class="question-text">٩) أحب دفاتري وملخصاتي تكون مرتبة وواضحة.</div>
-        <div class="answer-row" data-question="q9">
-          <label class="answer-option"><input type="radio" name="q9" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q9" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q9" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q9" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q9" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q9" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q9" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">١٠) أضيع أوراقي وملخصاتي بسهولة، وأحيانًا ما أعرف وين حطّيت أشياء مهمة.</div>
-        <div class="answer-row" data-question="q10">
-          <label class="answer-option"><input type="radio" name="q10" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q10" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q10" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q10" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q10" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q10" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q10" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">١١) أحب أكتب عناوين فرعية، أرقام، وأسهم عشان أنظم الدرس في عقلي.</div>
-        <div class="answer-row" data-question="q11">
-          <label class="answer-option"><input type="radio" name="q11" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q11" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q11" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q11" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q11" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q11" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q11" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">١٢) غالبًا أذاكر بطريقة عشوائية بدون ترتيب واضح للمواد أو الدروس.</div>
-        <div class="answer-row" data-question="q12">
-          <label class="answer-option"><input type="radio" name="q12" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q12" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q12" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q12" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q12" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q12" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q12" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <!-- قسم 4: الاجتماعية والدراسة مع الآخرين -->
-      <div class="section-title">القسم 4: الدراسة مع الآخرين أو لوحدك</div>
-      <div class="section-desc">هل تتعلم أفضل بشكل اجتماعي أم فردي؟</div>
-
-      <div class="question-block">
-        <div class="question-text">١٣) أستمتع لما أذاكر مع شخص آخر أو مجموعة.</div>
-        <div class="answer-row" data-question="q13">
-          <label class="answer-option"><input type="radio" name="q13" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q13" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q13" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q13" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q13" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q13" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q13" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">١٤) أحس أني أستفيد أكثر لما أشرح لغيري أو نتناقش في الدرس.</div>
-        <div class="answer-row" data-question="q14">
-          <label class="answer-option"><input type="radio" name="q14" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q14" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q14" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q14" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q14" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q14" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q14" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">١٥) إذا جلست أذاكر مع غيري، غالبًا نضيع الوقت في الكلام أكثر من الدراسة.</div>
-        <div class="answer-row" data-question="q15">
-          <label class="answer-option"><input type="radio" name="q15" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q15" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q15" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q15" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q15" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q15" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q15" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">١٦) أحس أن تركيزي أفضل بكثير لما أذاكر لوحدي تمامًا.</div>
-        <div class="answer-row" data-question="q16">
-          <label class="answer-option"><input type="radio" name="q16" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q16" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q16" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q16" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q16" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q16" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q16" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <!-- قسم 5: الحركة / الهدوء -->
-      <div class="section-title">القسم 5: الحركة والجلوس أثناء الدراسة</div>
-      <div class="section-desc">كيف يتعامل جسمك مع الجلوس للمذاكرة؟</div>
-
-      <div class="question-block">
-        <div class="question-text">١٧) أحب أتمشى أو أتحرك وأنا أراجع أو أحفظ.</div>
-        <div class="answer-row" data-question="q17">
-          <label class="answer-option"><input type="radio" name="q17" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q17" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q17" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q17" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q17" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q17" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q17" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">١٨) صعب أجلس فترة طويلة في نفس المكان وأنا أذاكر.</div>
-        <div class="answer-row" data-question="q18">
-          <label class="answer-option"><input type="radio" name="q18" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q18" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q18" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q18" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q18" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q18" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q18" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">١٩) أفضل أجلس على مكتب ثابت وبوضعية مريحة عشان أقدر أركز.</div>
-        <div class="answer-row" data-question="q19">
-          <label class="answer-option"><input type="radio" name="q19" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q19" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q19" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q19" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q19" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q19" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q19" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <!-- قسم 6: سرعة التعلم -->
-      <div class="section-title">القسم 6: سرعة الفهم والتعلم</div>
-      <div class="section-desc">كيف تتعامل مع المعلومات الجديدة؟</div>
-
-      <div class="question-block">
-        <div class="question-text">٢٠) ألتقط الفكرة بسرعة إذا كان الشرح واضح.</div>
-        <div class="answer-row" data-question="q20">
-          <label class="answer-option"><input type="radio" name="q20" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q20" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q20" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q20" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q20" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q20" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q20" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <div class="question-block">
-        <div class="question-text">٢١) أحتاج أرجع للدرس أكثر من مرة عشان يثبت معي فعليًا.</div>
-        <div class="answer-row" data-question="q21">
-          <label class="answer-option"><input type="radio" name="q21" value="yes"><span class="answer-circle size-normal color-yes"></span>أجل</label>
-          <label class="answer-option"><input type="radio" name="q21" value="yes_often"><span class="answer-circle size-small color-yes-often"></span>أجل غالبًا</label>
-          <label class="answer-option"><input type="radio" name="q21" value="yes_rare"><span class="answer-circle size-xs color-yes-rare"></span>نادرًا أجل</label>
-          <label class="answer-option"><input type="radio" name="q21" value="neutral"><span class="answer-circle size-large color-neutral"></span>محايد</label>
-          <label class="answer-option"><input type="radio" name="q21" value="no_rare"><span class="answer-circle size-xs color-no-rare"></span>نادرًا لا</label>
-          <label class="answer-option"><input type="radio" name="q21" value="no_often"><span class="answer-circle size-small color-no-often"></span>غالبًا لا</label>
-          <label class="answer-option"><input type="radio" name="q21" value="no"><span class="answer-circle size-normal color-no"></span>لا</label>
-        </div>
-      </div>
-
-      <!-- (ملاحظة: للتوفير في الحجم، ما راح أكتب كل ٨٠ سؤال بالنص هنا في هذا الجزء، لكن في الجزء الثاني أكمّل نموذج الأسئلة الباقية لو حبيتي،
-           أو أكتفي بهذه الكمية مع تأثيرها في التحليل. الآن نكمل هيكل النتيجة والسكربت في الجزء الثاني.) -->
-
-      <br>
-      <button onclick="calculateResult()">عرض النتيجة</button>
-      <button onclick="goToSection('introQuestionsScreen')">رجوع للمعلومات الأساسية</button>
-    </div>
-
-    <!-- صفحة النتيجة (الهيكل – المنطق في الجزء الثاني) -->
-    <div id="resultPage" class="screen" style="display:none;">
-      <h2>نتيجتك في اختبار نمط سلوك المتعلم</h2>
-      <p id="resultIntro" class="small-text" style="text-align:right;"></p>
-
-      <div class="cards-container">
-        <!-- بطاقة النمط الرئيسي -->
-        <div class="card" id="cardMainType">
-          <div class="card-header">
-            <div class="icon-circle" id="mainIcon">🎓</div>
-            <div>
-              <p class="card-title" id="resultMainName">اسم النمط</p>
-              <p class="card-sub" id="resultTriple">التسمية الثلاثية</p>
-            </div>
-          </div>
-          <p class="small-text">
-            <span class="pill" id="pillCategory">الفئة الرئيسية</span>
-            <span class="pill" id="pillSubtype">النوع الفرعي</span>
-          </p>
-          <p id="resultShort" style="font-size:13px;"></p>
-        </div>
-
-        <!-- بطاقة خريطة الشخصية -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">📊</div>
-            <div>
-              <p class="card-title">خريطة شخصية المتعلم</p>
-              <p class="card-sub">مستويات تقريبية من ١ إلى ١٠</p>
-            </div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">
-              <span>الانضباط</span>
-              <span id="score-discipline">0/10</span>
-            </div>
-            <div class="bar-track">
-              <div class="bar-fill" id="bar-discipline"></div>
-            </div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">
-              <span>التركيز</span>
-              <span id="score-focus">0/10</span>
-            </div>
-            <div class="bar-track">
-              <div class="bar-fill" id="bar-focus"></div>
-            </div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">
-              <span>التشتت</span>
-              <span id="score-distraction">0/10</span>
-            </div>
-            <div class="bar-track">
-              <div class="bar-fill" id="bar-distraction"></div>
-            </div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">
-              <span>الاجتماعية</span>
-              <span id="score-social">0/10</span>
-            </div>
-            <div class="bar-track">
-              <div class="bar-fill" id="bar-social"></div>
-            </div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">
-              <span>الحركة / الهدوء</span>
-              <span id="score-movement">0/10</span>
-            </div>
-            <div class="bar-track">
-              <div class="bar-fill" id="bar-movement"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- بطاقة أسلوب التعلم -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">🧠</div>
-            <div>
-              <p class="card-title">أسلوب التعلم</p>
-              <p class="card-sub">نسب تقريبية لأربعة أساليب</p>
-            </div>
-          </div>
-          <div class="learning-grid">
-            <div class="circle-meter">
-              <div class="circle-outer" id="circle-visual">0%</div>
-              <div class="circle-label">بصري</div>
-            </div>
-            <div class="circle-meter">
-              <div class="circle-outer" id="circle-auditory">0%</div>
-              <div class="circle-label">سمعي</div>
-            </div>
-            <div class="circle-meter">
-              <div class="circle-outer" id="circle-kinesthetic">0%</div>
-              <div class="circle-label">حركي</div>
-            </div>
-            <div class="circle-meter">
-              <div class="circle-outer" id="circle-readwrite">0%</div>
-              <div class="circle-label">قراءة/كتابة</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- بطاقة المواد -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">📚</div>
-            <div>
-              <p class="card-title">تعاملك مع المواد الدراسية</p>
-              <p class="card-sub">نظرة عامة حسب نمطك</p>
-            </div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label"><span>الرياضيات</span></div>
-            <div class="small-text" id="sub-math"></div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label"><span>اللغات</span></div>
-            <div class="small-text" id="sub-languages"></div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label"><span>العلوم</span></div>
-            <div class="small-text" id="sub-science"></div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label"><span>المواد النظرية</span></div>
-            <div class="small-text" id="sub-theory"></div>
-          </div>
-        </div>
-
-        <!-- بطاقة النصائح -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">💡</div>
-            <div>
-              <p class="card-title">نصائح وتطوير حسب نمطك</p>
-              <p class="card-sub">خطوات عملية تقدر تبدأ فيها من اليوم</p>
-            </div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label"><span>نصائح عامة</span></div>
-            <div class="small-text" id="tips"></div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label"><span>كيف تطور نفسك</span></div>
-            <div class="small-text" id="improve"></div>
-          </div>
-        </div>
-
-        <!-- استغلال النمط و MBTI -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">🎯</div>
-            <div>
-              <p class="card-title">استغلال نمطك والأداء الدراسي</p>
-              <p class="card-sub">كيف تستخدم نقاط قوتك بذكاء</p>
-            </div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label"><span>كيف تستغل نمطك</span></div>
-            <div class="small-text" id="usePattern"></div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label"><span>توقعات الأداء</span></div>
-            <div class="small-text" id="performance"></div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label"><span>لمسة من نمط MBTI</span></div>
-            <div class="small-text" id="mbtiNote"></div>
-          </div>
-        </div>
-      </div>
-
-      <br />
-      <button onclick="goToSection('homeScreen')">العودة للرئيسية</button>
-    </div>
-<script>
-/* ============================
-   1) القائمة الجانبية
-============================ */
-const sidebar = document.getElementById("sidebar");
-const menuToggle = document.getElementById("menuToggle");
-
-menuToggle.addEventListener("click", () => {
-  sidebar.classList.toggle("open");
-});
-
-document.querySelectorAll(".sidebar-link").forEach(link => {
-  link.addEventListener("click", () => {
-    const target = link.getAttribute("data-target");
-    goToSection(target);
-    sidebar.classList.remove("open");
-  });
-});
-
-/* ============================
-   2) الوضع الليلي / النهاري
-============================ */
-const themeToggle = document.getElementById("themeToggle");
-
-themeToggle.addEventListener("click", () => {
-  if (document.body.classList.contains("dark")) {
-    document.body.classList.remove("dark");
-    document.body.classList.add("light");
-    themeToggle.textContent = "☀️";
-  } else {
-    document.body.classList.remove("light");
-    document.body.classList.add("dark");
-    themeToggle.textContent = "🌙";
-  }
-});
-
-/* ============================
-   3) الانتقال بين الصفحات
-============================ */
-function goToSection(id) {
-  document.querySelectorAll(".screen").forEach(div => div.style.display = "none");
-  document.getElementById(id).style.display = "block";
-
-  document.querySelectorAll(".sidebar-link").forEach(l => l.classList.remove("active"));
-  document.querySelectorAll(`.sidebar-link[data-target="${id}"]`).forEach(l => l.classList.add("active"));
-}
-
-/* ============================
-   4) تفعيل اختيار الدوائر
-============================ */
-document.querySelectorAll(".answer-row").forEach(row => {
-  row.addEventListener("click", e => {
-    if (e.target.tagName === "INPUT") return;
-
-    const option = e.target.closest(".answer-option");
-    if (!option) return;
-
-    const name = option.querySelector("input").name;
-
-    document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-      r.closest(".answer-option").classList.remove("selected");
-    });
-
-    option.classList.add("selected");
-    option.querySelector("input").checked = true;
-  });
-});
-
-/* ============================
-   5) تحويل الإجابات إلى قيم
-============================ */
-function answerValue(v) {
-  switch (v) {
-    case "yes": return 3;
-    case "yes_often": return 2;
-    case "yes_rare": return 1;
-    case "neutral": return 0;
-    case "no_rare": return -1;
-    case "no_often": return -2;
-    case "no": return -3;
-    default: return 0;
-  }
-}
-
-/* ============================
-   6) قاعدة بيانات الأنماط
-============================ */
-const types = {
-  analytical: {
-    icon: "📐",
-    color: "var(--cat-analytical)",
-    name: "العقل البارد",
-    triple: "تحليلي – منطقي – منظم",
-    categoryLabel: "فئة تحليلية",
-    short: "تفكير منطقي، يحب الفهم العميق وربط المعلومات.",
-    tips: "استخدم الخرائط الذهنية والجداول.",
-    improve: "قلل المبالغة في التحليل وركز على التطبيق.",
-    usePattern: "اشرح لغيرك، حل مسائل عالية المستوى.",
-    performance: "يتفوق في المواد العلمية إذا وجد تنظيمًا.",
-    subjects: {
-      math: "يفضل الحل المنطقي والخطوات الواضحة.",
-      languages: "يستفيد من الجداول والقواعد.",
-      science: "يفضل التجارب المرتبطة بالفهم.",
-      theory: "يحتاج تقسيم المعلومات لمحاور."
-    }
-  },
-  creative: {
-    icon: "🎨",
-    color: "var(--cat-creative)",
-    name: "المبتكر الحالم",
-    triple: "إبداعي – بصري – مرن",
-    categoryLabel: "فئة إبداعية",
-    short: "خياله واسع، يربط المعلومات بالصور والقصص.",
-    tips: "حوّل الدروس لرسومات وقصص.",
-    improve: "اكتب خطة بسيطة قبل المذاكرة.",
-    usePattern: "استغل إبداعك في المشاريع.",
-    performance: "يبرع في المواد المفتوحة.",
-    subjects: {
-      math: "يستفيد من الرسومات والألوان.",
-      languages: "يتعلم بالقصص والحوارات.",
-      science: "يتخيل التجارب كمشاهد.",
-      theory: "يحتاج خرائط ذهنية ملونة."
-    }
-  },
-  social: {
-    icon: "🤝",
-    color: "var(--cat-social)",
-    name: "المتعاون الاجتماعي",
-    triple: "سمعي – اجتماعي – متفاعل",
-    categoryLabel: "فئة اجتماعية",
-    short: "يتعلم بالنقاش والتفاعل.",
-    tips: "كوّن مجموعات مذاكرة صغيرة.",
-    improve: "حدد هدفًا واضحًا قبل الدراسة الجماعية.",
-    usePattern: "اشرح لغيرك، شارك في العروض.",
-    performance: "يتألق مع التفاعل.",
-    subjects: {
-      math: "يستفيد من حل المسائل مع الآخرين.",
-      languages: "يتعلم بالقراءة بصوت عالٍ.",
-      science: "يفضل التجارب الجماعية.",
-      theory: "يستفيد من النقاش."
-    }
-  },
-  practical: {
-    icon: "🛠️",
-    color: "var(--cat-practical)",
-    name: "المهندس العملي",
-    triple: "حركي – تطبيقي – نشيط",
-    categoryLabel: "فئة عملية",
-    short: "يتعلم بالتطبيق والحركة.",
-    tips: "حل كثير من التمارين.",
-    improve: "قسم المذاكرة لفترات قصيرة.",
-    usePattern: "استغل طاقتك في المواد العملية.",
-    performance: "يتفوق في التطبيق.",
-    subjects: {
-      math: "يحتاج حلًا يدويًا مستمرًا.",
-      languages: "يكتب الكلمات بيده.",
-      science: "يحب التجارب.",
-      theory: "يحتاج بطاقات ملموسة."
-    }
-  },
-  low: {
-    icon: "🛌",
-    color: "var(--cat-low)",
-    name: "العبقري الكسول",
-    triple: "ذكي – مشتت – غير مستقر",
-    categoryLabel: "فئة منخفضة الانضباط",
-    short: "يفهم بسرعة لكن التأجيل يضره.",
-    tips: "ابدأ بـ 10 دقائق فقط.",
-    improve: "استخدم منبهات وجداول بسيطة.",
-    usePattern: "استغل ذكاءك في الفهم السريع.",
-    performance: "نتائجك متقلبة.",
-    subjects: {
-      math: "لا تؤجل الحل لآخر يوم.",
-      languages: "اختر نصوصًا ممتعة.",
-      science: "شاهد فيديوهات قصيرة.",
-      theory: "قسم الحفظ لأجزاء صغيرة."
-    }
-  },
-  high: {
-    icon: "📅",
-    color: "var(--cat-high)",
-    name: "المنظم الحديدي",
-    triple: "منظم – مستمر – ملتزم",
-    categoryLabel: "فئة عالية الانضباط",
-    short: "يحب الجداول والوضوح.",
-    tips: "استمر على تنظيمك.",
-    improve: "لا تضغط نفسك أكثر من اللازم.",
-    usePattern: "ساعد غيرك في التنظيم.",
-    performance: "نتائج ثابتة.",
-    subjects: {
-      math: "خطط أسبوعية للحل.",
-      languages: "روتين يومي بسيط.",
-      science: "ملخصات منظمة.",
-      theory: "مراجعات متكررة."
-    }
-  }
-};
-
-/* ============================
-   7) تحليل MBTI
-============================ */
-const mbtiHints = {
-  INTJ: "تحليلي، يفضل الدراسة الفردية.",
-  INTP: "فضولي، يحب الفهم العميق.",
-  ENTJ: "قيادي، يناسبه التخطيط.",
-  ENTP: "إبداعي، يحتاج ضبطًا بسيطًا.",
-  INFJ: "عميق، يحتاج جو هادئ.",
-  INFP: "خيالي، يحتاج ربط الدراسة بأهدافه.",
-  ENFJ: "اجتماعي، يتألق في العروض.",
-  ENFP: "حيوي، يحتاج تنظيمًا بسيطًا.",
-  ISTJ: "منظم جدًا.",
-  ISFJ: "محافظ وهادئ.",
-  ESTJ: "عملي وواضح.",
-  ESFJ: "اجتماعي ومتعاون.",
-  ISTP: "عملي وهادئ.",
-  ISFP: "حساس ويحب الراحة.",
-  ESTP: "حركي وجريء.",
-  ESFP: "مرِح واجتماعي."
-};
-
-/* ============================
-   8) حساب النتيجة
-============================ */
-function calculateResult() {
-  const scores = {
-    discipline: 0,
-    focus: 0,
-    distraction: 0,
-    social: 0,
-    movement: 0,
-    analytical: 0,
-    creative: 0,
-    practical: 0,
-    low: 0,
-    high: 0
-  };
-
-  for (let i = 1; i <= 80; i++) {
-    const q = document.querySelector(`input[name="q${i}"]:checked`);
-    if (!q) continue;
-    const val = answerValue(q.value);
-
-    if (i <= 10) scores.discipline += val;
-    else if (i <= 20) scores.focus += val;
-    else if (i <= 30) scores.distraction += val;
-    else if (i <= 40) scores.social += val;
-    else if (i <= 50) scores.movement += val;
-    else if (i <= 60) scores.analytical += val;
-    else if (i <= 70) scores.creative += val;
-    else if (i <= 75) scores.practical += val;
-    else if (i <= 78) scores.low += val;
-    else scores.high += val;
-  }
-
-  let category = "analytical";
-  let max = -999;
-
-  for (const k in scores) {
-    if (scores[k] > max) {
-      max = scores[k];
-      category = k;
-    }
-  }
-
-  const typeData = types[category];
-
-  const name = document.getElementById("userName").value.trim();
-  const stage = document.getElementById("userStage").value;
-  const reason = document.getElementById("userReason").value;
-  const mbti = document.getElementById("userMBTI").value;
-
-  document.getElementById("resultIntro").innerText =
-    `${name ? name + "، " : ""}هذه نتيجة تقريبية مبنية على إجاباتك في ٨٠ سؤال.`;
-
-  document.getElementById("resultMainName").innerText = typeData.name;
-  document.getElementById("resultTriple").innerText = typeData.triple;
-  document.getElementById("pillCategory").innerText = typeData.categoryLabel;
-  document.getElementById("resultShort").innerText = typeData.short;
-
-  document.getElementById("mainIcon").textContent = typeData.icon;
-  document.getElementById("mainIcon").style.background = typeData.color;
-
-  document.getElementById("sub-math").innerText = typeData.subjects.math;
-  document.getElementById("sub-languages").innerText = typeData.subjects.languages;
-  document.getElementById("sub-science").innerText = typeData.subjects.science;
-  document.getElementById("sub-theory").innerText = typeData.subjects.theory;
-
-  document.getElementById("tips").innerText = typeData.tips;
-  document.getElementById("improve").innerText = typeData.improve;
-  document.getElementById("usePattern").innerText = typeData.usePattern;
-  document.getElementById("performance").innerText = typeData.performance;
-
-  document.getElementById("mbtiNote").innerText =
-    mbti && mbtiHints[mbti] ? mbtiHints[mbti] : "لم يتم اختيار MBTI.";
-
-  goToSection("resultPage");
-}
-</script>
-  </div>
+    <!-- Wind container -->
+    <div class="wind-container" id="windContainer"></div>
+
+    <script>
+        (function() {
+            // ============ DOM Elements ============
+            const bgParticlesContainer = document.getElementById('bgParticles');
+            const puzzleArea = document.getElementById('puzzleArea');
+            const progressSlots = document.getElementById('progressSlots');
+            const letterGrid = document.getElementById('letterGrid');
+            const hintText = document.getElementById('hintText');
+            const canvasContainer = document.getElementById('canvasContainer');
+            const canvas = document.getElementById('cakeCanvas');
+            const ctx = canvas.getContext('2d');
+            const ageOverlay = document.getElementById('ageOverlay');
+            const windContainer = document.getElementById('windContainer');
+            const finalMessage = document.getElementById('finalMessage');
+            const titleArea = document.getElementById('titleArea');
+            const mainContainer = document.getElementById('mainContainer');
+
+            // ============ State ============
+            const TARGET_NAME = ['د', 'ا', 'ن', 'ي', 'ه'];
+            const DISTRACTORS = ['م', 'س', 'ر', 'ل', 'ب', 'ك', 'و', 'ش'];
+            let currentLetterIndex = 0;
+            let phase = 'puzzle'; // puzzle | cakeReveal | cakeDisplay | breeze | ageChange | complete
+            let cakeSlideY = 0;
+            let flameFlicker = 0;
+            let flameOpacity = 1;
+            let displayAge = 15;
+            let ageTransitionProgress = 0;
+            let confettiParticles = [];
+            let animationId;
+
+            // Canvas dimensions
+            const CANVAS_W = 400;
+            const CANVAS_H = 500;
+            const OFF_W = 40;
+            const OFF_H = 60;
+            const SCALE = 10;
+
+            // Offscreen canvas for pixel cake
+            const offCanvas = document.createElement('canvas');
+            offCanvas.width = OFF_W;
+            offCanvas.height = OFF_H;
+            const offCtx = offCanvas.getContext('2d');
+
+            // ============ Background particles ============
+            function createBgParticles() {
+                const count = 35;
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('bg-particle');
+                    const size = Math.random() * 3 + 1.5;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.animationDuration = Math.random() * 18 + 12 + 's';
+                    particle.style.animationDelay = Math.random() * 15 + 's';
+                    bgParticlesContainer.appendChild(particle);
+                }
+            }
+
+            // ============ Puzzle Setup ============
+            function setupPuzzle() {
+                // Create all letters (target + distractors)
+                const allLetters = [...TARGET_NAME];
+                // Add some distractors
+                const numDistractors = 7;
+                const shuffledDistractors = [...DISTRACTORS].sort(() => Math.random() - 0.5);
+                const selectedDistractors = shuffledDistractors.slice(0, numDistractors);
+                allLetters.push(...selectedDistractors);
+
+                // Shuffle all letters
+                const shuffled = allLetters.sort(() => Math.random() - 0.5);
+
+                // Render letter buttons
+                letterGrid.innerHTML = '';
+                shuffled.forEach((letter, index) => {
+                    const btn = document.createElement('button');
+                    btn.classList.add('letter-btn');
+                    btn.textContent = letter;
+                    btn.dataset.letter = letter;
+                    btn.dataset.index = index;
+                    btn.addEventListener('click', () => handleLetterClick(btn, letter));
+                    // Add touch event for mobile
+                    btn.addEventListener('touchend', (e) => {
+                        e.preventDefault();
+                        handleLetterClick(btn, letter);
+                    });
+                    letterGrid.appendChild(btn);
+                });
+
+                // Reset progress slots
+                const slots = progressSlots.querySelectorAll('.slot');
+                slots.forEach(slot => {
+                    slot.classList.remove('filled');
+                    slot.textContent = '';
+                });
+                currentLetterIndex = 0;
+                hintText.textContent = '💡 اضغطي على حروف اسمكِ بالترتيب الصحيح';
+                hintText.style.opacity = '1';
+            }
+
+            function handleLetterClick(btn, letter) {
+                if (phase !== 'puzzle') return;
+                if (btn.classList.contains('used')) return;
+
+                if (letter === TARGET_NAME[currentLetterIndex]) {
+                    // Correct letter!
+                    btn.classList.add('used');
+                    // Fill the appropriate slot (RTL: index 0 is rightmost for first letter)
+                    const slotIndex = currentLetterIndex;
+                    const slots = progressSlots.querySelectorAll('.slot');
+                    const targetSlot = slots[slotIndex];
+                    if (targetSlot) {
+                        targetSlot.textContent = letter;
+                        targetSlot.classList.add('filled');
+                    }
+                    currentLetterIndex++;
+
+                    // Check if puzzle complete
+                    if (currentLetterIndex >= TARGET_NAME.length) {
+                        setTimeout(() => {
+                            completePuzzle();
+                        }, 500);
+                    } else {
+                        hintText.textContent = '👏 أحسنتِ! استمري...';
+                        hintText.style.opacity = '1';
+                        setTimeout(() => {
+                            hintText.style.opacity = '0.6';
+                        }, 1200);
+                    }
+                } else {
+                    // Wrong letter
+                    btn.classList.add('wrong-shake');
+                    hintText.textContent = '❌ ليس هذا الحرف... حاولي مرة أخرى';
+                    hintText.style.opacity = '1';
+                    setTimeout(() => {
+                        btn.classList.remove('wrong-shake');
+                        hintText.style.opacity = '0.7';
+                    }, 600);
+                }
+            }
+
+            function completePuzzle() {
+                phase = 'cakeReveal';
+                hintText.textContent = '✨ أحسنتِ! تم حل اللغز... ✨';
+                hintText.style.opacity = '1';
+
+                // Hide puzzle after brief delay
+                setTimeout(() => {
+                    puzzleArea.classList.add('hidden');
+                    titleArea.querySelector('.title').textContent = '🎂 تفضّلي... 🎂';
+                    titleArea.querySelector('.subtitle').textContent = '';
+                    // Reveal canvas
+                    canvasContainer.classList.add('revealed');
+                    initCanvas();
+                    cakeSlideY = CANVAS_H;
+                    animateCakeReveal();
+                }, 900);
+            }
+
+            // ============ Canvas & Cake ============
+            function initCanvas() {
+                canvas.width = CANVAS_W;
+                canvas.height = CANVAS_H;
+                ctx.imageSmoothingEnabled = false;
+                offCtx.imageSmoothingEnabled = false;
+                drawStaticCake();
+            }
+
+            function drawStaticCake() {
+                offCtx.clearRect(0, 0, OFF_W, OFF_H);
+
+                // --- Plate ---
+                offCtx.fillStyle = '#d4c5b9';
+                offCtx.fillRect(3, 51, 34, 5);
+                offCtx.fillStyle = '#c4b5a9';
+                offCtx.fillRect(4, 52, 32, 3);
+                // Plate highlight
+                offCtx.fillStyle = '#e8dcd3';
+                offCtx.fillRect(5, 51, 30, 1);
+
+                // --- Bottom tier (wider) ---
+                const btX = 7;
+                const btY = 36;
+                const btW = 26;
+                const btH = 15;
+                // Cake body
+                offCtx.fillStyle = '#e8917e';
+                offCtx.fillRect(btX, btY, btW, btH);
+                // Darker shading on sides
+                offCtx.fillStyle = '#d4796b';
+                offCtx.fillRect(btX, btY, 2, btH);
+                offCtx.fillRect(btX + btW - 2, btY, 2, btH);
+                // Lighter center highlight
+                offCtx.fillStyle = '#f0a090';
+                offCtx.fillRect(btX + 8, btY, 10, btH);
+                // Frosting top of bottom tier
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(btX - 1, btY - 2, btW + 2, 3);
+                offCtx.fillStyle = '#ffe8e0';
+                offCtx.fillRect(btX, btY - 1, btW, 2);
+                // Frosting drips
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(btX, btY + 1, 1, 5);
+                offCtx.fillRect(btX + 6, btY + 1, 1, 4);
+                offCtx.fillRect(btX + btW - 2, btY + 1, 1, 6);
+                offCtx.fillRect(btX + btW - 8, btY + 1, 1, 3);
+
+                // --- Top tier ---
+                const ttX = 11;
+                const ttY = 24;
+                const ttW = 18;
+                const ttH = 12;
+                offCtx.fillStyle = '#f4a7b9';
+                offCtx.fillRect(ttX, ttY, ttW, ttH);
+                offCtx.fillStyle = '#e895a5';
+                offCtx.fillRect(ttX, ttY, 2, ttH);
+                offCtx.fillRect(ttX + ttW - 2, ttY, 2, ttH);
+                offCtx.fillStyle = '#fbbac8';
+                offCtx.fillRect(ttX + 6, ttY, 6, ttH);
+                // Frosting top of top tier
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(ttX - 1, ttY - 2, ttW + 2, 3);
+                offCtx.fillStyle = '#ffe8e0';
+                offCtx.fillRect(ttX, ttY - 1, ttW, 2);
+                // Frosting drips
+                offCtx.fillStyle = '#fff5f0';
+                offCtx.fillRect(ttX + 1, ttY + 1, 1, 4);
+                offCtx.fillRect(ttX + ttW - 3, ttY + 1, 1, 5);
+
+                // --- Sprinkles / decorations ---
+                const sprinkleColors = ['#ff6b8a', '#ffcc00', '#66ddff', '#ff9e6d', '#a0e7a0', '#fff'];
+                for (let i = 0; i < 18; i++) {
+                    const sx = btX + 2 + Math.floor(Math.random() * (btW - 4));
+                    const sy = btY + 2 + Math.floor(Math.random() * (btH - 3));
+                    offCtx.fillStyle = sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
+                    offCtx.fillRect(sx, sy, 1, 1);
+                }
+                for (let i = 0; i < 10; i++) {
+                    const sx = ttX + 2 + Math.floor(Math.random() * (ttW - 4));
+                    const sy = ttY + 2 + Math.floor(Math.random() * (ttH - 3));
+                    offCtx.fillStyle = sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
+                    offCtx.fillRect(sx, sy, 1, 1);
+                }
+
+                // --- Candles ---
+                const candle1X = 16;
+                const candle2X = 22;
+                const candleY = 16;
+                const candleH = 8;
+                // Candle 1
+                offCtx.fillStyle = '#ffe8cc';
+                offCtx.fillRect(candle1X, candleY, 2, candleH);
+                offCtx.fillStyle = '#ffd9a8';
+                offCtx.fillRect(candle1X + 1, candleY, 1, candleH);
+                // Candle 2
+                offCtx.fillStyle = '#ffe8cc';
+                offCtx.fillRect(candle2X, candleY, 2, candleH);
+                offCtx.fillStyle = '#ffd9a8';
+                offCtx.fillRect(candle2X + 1, candleY, 1, candleH);
+                // Candle stripes
+                offCtx.fillStyle = '#f5c8a0';
+                offCtx.fillRect(candle1X, candleY + 2, 2, 1);
+                offCtx.fillRect(candle1X, candleY + 5, 2, 1);
+                offCtx.fillRect(candle2X, candleY + 2, 2, 1);
+                offCtx.fillRect(candle2X, candleY + 5, 2, 1);
+            }
+
+            function drawFlamesOnMain(ctx, frame, opacity) {
+                // Flame positions in main canvas coordinates
+                const flame1CX = (16 + 1) * SCALE; // center of candle 1
+                const flame1CY = 14 * SCALE;
+                const flame2CX = (22 + 1) * SCALE;
+                const flame2CY = 14 * SCALE;
+
+                drawSingleFlame(ctx, flame1CX, flame1CY, frame, opacity);
+                drawSingleFlame(ctx, flame2CX, flame2CY, frame + 1.7, opacity);
+            }
+
+            function drawSingleFlame(ctx, cx, cy, frame, opacity) {
+                if (opacity <= 0.01) return;
+                ctx.save();
+                ctx.globalAlpha = Math.min(1, Math.max(0, opacity));
+
+                const flicker = Math.sin(frame * 0.7) * 3 + Math.cos(frame * 1.3) * 2;
+                const h = 12 + flicker;
+                const w = 6 + Math.abs(flicker) * 0.8;
+
+                // Outer glow
+                const glowGrad = ctx.createRadialGradient(cx, cy - h * 0.3, w * 0.5, cx, cy, w * 2.5);
+                glowGrad.addColorStop(0, 'rgba(255,180,30,0.8)');
+                glowGrad.addColorStop(0.4, 'rgba(255,140,20,0.5)');
+                glowGrad.addColorStop(0.7, 'rgba(255,100,10,0.15)');
+                glowGrad.addColorStop(1, 'rgba(255,60,5,0)');
+                ctx.fillStyle = glowGrad;
+                ctx.beginPath();
+                ctx.arc(cx, cy - h * 0.25, w * 2.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Outer flame (orange)
+                ctx.fillStyle = '#ff8c30';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.quadraticCurveTo(cx - w, cy - h * 0.6, cx, cy - h);
+                ctx.quadraticCurveTo(cx + w, cy - h * 0.6, cx, cy);
+                ctx.fill();
+
+                // Inner flame (yellow)
+                const innerH = h * 0.55;
+                const innerW = w * 0.5;
+                ctx.fillStyle = '#ffd54f';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - 2);
+                ctx.quadraticCurveTo(cx - innerW, cy - innerH * 0.6, cx, cy - innerH);
+                ctx.quadraticCurveTo(cx + innerW, cy - innerH * 0.6, cx, cy - 2);
+                ctx.fill();
+
+                // White-hot core
+                const coreH = innerH * 0.35;
+                ctx.fillStyle = '#fff8e1';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - 3);
+                ctx.quadraticCurveTo(cx - 1.5, cy - coreH * 0.7, cx, cy - coreH);
+                ctx.quadraticCurveTo(cx + 1.5, cy - coreH * 0.7, cx, cy - 3);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function renderFullCanvas(slideY, flameFrame, flameOp) {
+                ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+
+                // Dark background for canvas
+                ctx.fillStyle = '#1a1a2e';
+                ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+
+                // Subtle radial glow behind cake
+                const glowGrad = ctx.createRadialGradient(CANVAS_W / 2, CANVAS_H * 0.45, CANVAS_W * 0.15,
+                    CANVAS_W / 2, CANVAS_H * 0.5, CANVAS_W * 0.7);
+                glowGrad.addColorStop(0, 'rgba(244,167,185,0.18)');
+                glowGrad.addColorStop(1, 'rgba(26,26,46,0)');
+                ctx.fillStyle = glowGrad;
+                ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+
+                // Draw pixel cake
+                const destY = slideY;
+                ctx.drawImage(offCanvas, 0, 0, OFF_W, OFF_H, 0, destY, CANVAS_W, CANVAS_H);
+
+                // Draw flames on top (if cake is visible and flames not blown out)
+                if (slideY < CANVAS_H * 0.5 && flameOp > 0.01) {
+                    drawFlamesOnMain(ctx, flameFrame, flameOp);
+                }
+
+                // Sparkles around cake area
+                if (slideY < CANVAS_H * 0.3) {
+                    drawSparkles(ctx, flameFrame);
+                }
+            }
+
+            function drawSparkles(ctx, frame) {
+                const sparklePositions = [
+                    { x: 0.35, y: 0.28 }, { x: 0.6, y: 0.25 }, { x: 0.3, y: 0.35 },
+                    { x: 0.65, y: 0.32 }, { x: 0.4, y: 0.22 }, { x: 0.55, y: 0.2 },
+                    { x: 0.28, y: 0.4 }, { x: 0.68, y: 0.38 }, { x: 0.45, y: 0.18 },
+                ];
+                sparklePositions.forEach((pos, i) => {
+                    const sx = pos.x * CANVAS_W;
+                    const sy = pos.y * CANVAS_H + cakeSlideY;
+                    const brightness = 0.3 + 0.7 * Math.abs(Math.sin(frame * 0.04 + i * 1.8));
+                    if (brightness < 0.35) return;
+                    ctx.fillStyle = `rgba(255,255,240,${brightness * 0.9})`;
+                    const size = 2 + brightness * 3;
+                    ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
+                    // Cross sparkle
+                    if (brightness > 0.7) {
+                        ctx.fillStyle = `rgba(255,255,240,${brightness * 0.6})`;
+                        ctx.fillRect(sx - size * 1.2, sy - 0.5, size * 2.4, 1);
+                        ctx.fillRect(sx - 0.5, sy - size * 1.2, 1, size * 2.4);
+                    }
+                });
+            }
+
+            // ============ Cake Reveal Animation ============
+            function animateCakeReveal() {
+                const targetY = 0;
+                const startY = CANVAS_H;
+                const duration = 1200;
+                const startTime = performance.now();
+
+                function step(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(1, elapsed / duration);
+                    // Ease out (cubic)
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    cakeSlideY = startY + (targetY - startY) * eased;
+
+                    renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+
+                    if (progress < 1) {
+                        animationId = requestAnimationFrame(step);
+                    } else {
+                        cakeSlideY = targetY;
+                        phase = 'cakeDisplay';
+                        flameOpacity = 1;
+                        // Start flame animation
+                        startFlameAnimation();
+                        // Schedule breeze after delay
+                        setTimeout(() => {
+                            if (phase === 'cakeDisplay') {
+                                triggerBreeze();
+                            }
+                        }, 2800);
+                    }
+                }
+                animationId = requestAnimationFrame(step);
+            }
+
+            function startFlameAnimation() {
+                function flameLoop(now) {
+                    if (phase === 'cakeDisplay' || phase === 'breeze') {
+                        flameFlicker += 0.16;
+                        renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+                        animationId = requestAnimationFrame(flameLoop);
+                    } else if (phase === 'ageChange' || phase === 'complete') {
+                        renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+                        // Still render but no flame animation
+                    }
+                }
+                animationId = requestAnimationFrame(flameLoop);
+            }
+
+            // ============ Breeze ============
+            function triggerBreeze() {
+                phase = 'breeze';
+                // Create wind streaks
+                const streakCount = 22;
+                const candleScreenY = canvasContainer.getBoundingClientRect().top +
+                    (canvasContainer.getBoundingClientRect().height * 0.25);
+
+                for (let i = 0; i < streakCount; i++) {
+                    const streak = document.createElement('div');
+                    streak.classList.add('wind-streak');
+                    const yOffset = (Math.random() - 0.5) * 200;
+                    streak.style.top = (candleScreenY + yOffset) + 'px';
+                    streak.style.width = (Math.random() * 120 + 60) + 'px';
+                    streak.style.height = (Math.random() * 3 + 1.5) + 'px';
+                    streak.style.animationDuration = (Math.random() * 1.2 + 1) + 's';
+                    streak.style.animationDelay = (Math.random() * 0.7) + 's';
+                    windContainer.appendChild(streak);
+
+                    // Clean up after animation
+                    const totalDuration = parseFloat(streak.style.animationDuration) + parseFloat(streak.style
+                        .animationDelay);
+                    setTimeout(() => {
+                        if (streak.parentNode) streak.parentNode.removeChild(streak);
+                    }, totalDuration * 1000 + 300);
+                }
+
+                // Start dimming the flame after wind passes
+                setTimeout(() => {
+                    const dimInterval = setInterval(() => {
+                        flameOpacity -= 0.06;
+                        if (flameOpacity <= 0) {
+                            flameOpacity = 0;
+                            clearInterval(dimInterval);
+                            // Age change!
+                            triggerAgeChange();
+                        }
+                    }, 40);
+                }, 900);
+            }
+
+            // ============ Age Change ============
+            function triggerAgeChange() {
+                phase = 'ageChange';
+                ageOverlay.classList.add('changing');
+
+                // Update age mid-animation
+                setTimeout(() => {
+                    ageOverlay.textContent = '16';
+                    displayAge = 16;
+                }, 280);
+
+                // After animation
+                setTimeout(() => {
+                    ageOverlay.classList.remove('changing');
+                    ageOverlay.textContent = '16';
+                    displayAge = 16;
+                    phase = 'complete';
+                    spawnConfetti();
+                    showFinalMessage();
+                }, 750);
+            }
+
+            // ============ Confetti ============
+            function spawnConfetti() {
+                const colors = ['#ff6b8a', '#ffcc00', '#66ddff', '#ff9e6d', '#a0e7a0',
+                    '#ff80ab', '#ffd740', '#40c4ff', '#b2ff59', '#ff8a80',
+                    '#fff176', '#84ffff', '#ffab91', '#e8b7d4', '#f5c842'
+                ];
+                const cakeRect = canvasContainer.getBoundingClientRect();
+                const centerX = cakeRect.left + cakeRect.width / 2;
+                const centerY = cakeRect.top + cakeRect.height * 0.3;
+
+                for (let i = 0; i < 80; i++) {
+                    const piece = document.createElement('div');
+                    piece.classList.add('confetti-piece');
+                    piece.style.left = centerX + 'px';
+                    piece.style.top = centerY + 'px';
+                    const size = Math.random() * 8 + 4;
+                    piece.style.width = size + 'px';
+                    piece.style.height = size * (Math.random() * 0.6 + 0.4) + 'px';
+                    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 350 + 100;
+                    const dx = Math.cos(angle) * distance;
+                    const dy = Math.sin(angle) * distance - Math.random() * 200;
+                    piece.style.setProperty('--dx', dx + 'px');
+                    piece.style.setProperty('--dy', dy + 'px');
+                    piece.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+                    piece.style.animationDuration = (Math.random() * 2 + 1.8) + 's';
+                    piece.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(piece);
+
+                    // Clean up
+                    const totalDur = parseFloat(piece.style.animationDuration) + parseFloat(piece.style
+                    .animationDelay);
+                    setTimeout(() => {
+                        if (piece.parentNode) piece.parentNode.removeChild(piece);
+                    }, totalDur * 1000 + 200);
+                }
+            }
+
+            // ============ Final Message ============
+            function showFinalMessage() {
+                finalMessage.classList.add('show');
+                titleArea.querySelector('.title').textContent = '💖 مبارك يا دانيه 💖';
+                titleArea.querySelector('.subtitle').textContent = '';
+                // Add subtle sparkle to age highlight
+                const ageSpan = finalMessage.querySelector('.age-highlight');
+                if (ageSpan) {
+                    ageSpan.textContent = '16';
+                }
+            }
+
+            // ============ Global animation loop (fallback) ============
+            function globalAnimationLoop(now) {
+                if (phase === 'cakeDisplay' || phase === 'breeze') {
+                    // handled by flameLoop
+                } else if (phase === 'ageChange' || phase === 'complete') {
+                    renderFullCanvas(cakeSlideY, flameFlicker, flameOpacity);
+                }
+                if (phase !== 'puzzle' && phase !== 'cakeReveal') {
+                    animationId = requestAnimationFrame(globalAnimationLoop);
+                }
+            }
+
+            // ============ Initialize ============
+            function init() {
+                createBgParticles();
+                setupPuzzle();
+                canvasContainer.classList.remove('revealed');
+                finalMessage.classList.remove('show');
+                ageOverlay.textContent = '15';
+                displayAge = 15;
+                flameOpacity = 1;
+                flameFlicker = 0;
+                cakeSlideY = 0;
+                phase = 'puzzle';
+                currentLetterIndex = 0;
+                // Draw initial empty canvas
+                ctx.fillStyle = '#1a1a2e';
+                ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+                // Start global loop for later phases
+                animationId = requestAnimationFrame(globalAnimationLoop);
+            }
+
+            init();
+
+            // ============ Handle window resize for wind Y position ============
+            // (Wind positions are recalculated when breeze triggers, so this is fine)
+
+            console.log('🌟 موقع يوم ميلاد دانيه جاهز! 🌟');
+            console.log('💡 حلّي اللغز: اضغطي على حروف اسم "دانيه" بالترتيب');
+            console.log('🎂 بعدها راح تشوفين الكيكة والبكسلات والنسمة تطفي الشمعة!');
+            console.log('💖 عمرك بيتغير من 15 إلى 16');
+        })();
+    </script>
+</body>
+</html>
